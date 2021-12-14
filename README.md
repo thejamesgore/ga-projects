@@ -1,6 +1,6 @@
 # ga-projects
 
-This is where all my project work during the General Assembly Software Engineering Intensive course can be easily found. Each project has their own README.md providing an in depth overview with links to the original repositories inside.
+This is where all my project work during the General Assembly Software Engineering Intensive course can be easily found. Each project has their own README.md providing an in depth overview with links to the original repositories inside
 
 GA Project 1 - JavaScript Game
 
