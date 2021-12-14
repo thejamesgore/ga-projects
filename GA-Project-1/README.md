@@ -20,7 +20,7 @@ Space shooter is a sidescrolling shooting game inspired by the classic R-Type an
 
 This was the my first project from General Assembly's Software Engineering Immersive course. It was an individual project built in 7 days, and my first real-world practice with JavaScript beyond solving small simple puzzles.
 
-Live version
+Live version:
 https://thejamesgore.github.io/ga-projects/GA-Project-1/index.html
 
 ![](https://user-images.githubusercontent.com/83005220/145941210-ea7bd714-356f-4f83-9721-1352a3e0309d.png)
