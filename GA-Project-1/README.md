@@ -91,7 +91,7 @@ The idea was to track the boss movement of the boss enemy to the movement of the
 
 Below you can see the logic that progressively makes the end game more difficult by increasing firing frequency as boss.health decreases past certain thresholds. You can also see that the boss.y position of the boss varies depending where the ship.y position is however with some modifications to ensure it stays on screen. Finally you can also see the function that tests for hit detection of the boss by player missles utilizing a forEach function which also has included an increase to the player score, reduction in boss.health, and a final animation where the boss will drift downwards offscreen when it is defeated.
 
-```
+``` JavaScript
 // Boss firing frequency based on current frame & how much health the boss has left
 
     if (boss.x === 495 && frame % 100 === 0) {
