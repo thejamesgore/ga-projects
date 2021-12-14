@@ -7,7 +7,6 @@ Table of Contents:
 - Technologies Used
 - Approach Taken & Timeline
 - Featured Code
-- Screenshots
 - Bugs
 - Wins and Challenges
 - Future Content and Improvements
