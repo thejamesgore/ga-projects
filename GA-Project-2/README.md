@@ -31,7 +31,7 @@ Live Version:
 To run and use the app you will need to do the following:
 
 - Create a spotify account if you don't already have one
-- Upgrade your spotify account to a developers account via this link https://developer.spotify.com/dashboard/ and following the guide on this pagehttps://developer.spotify.com/documentation/web-api/
+- Upgrade your spotify account to a developers account via this link https://developer.spotify.com/dashboard/ and following the guide on this page https://developer.spotify.com/documentation/web-api/
 - Create an app on the developer dashboard & add localhost:3000/ to the uri of the app
 - In the SpotifyAuth.js change the clientID string value to the client id of the app you created
 - Clone or download the repo. Original can be found here - https://github.com/thejamesgore/spotify-podcast-app
