@@ -44,7 +44,7 @@ To run and use the app you will need to do the following:
 ---
 
 - Consume a public API - this could be anything but must make sense for the project
-- Have several components - at least one classical and one functional
+- Have several components - the project should be structured appropirately
 - The app should have multiple pages and have routing
 - Include wireframes designed before building the app
 
@@ -64,7 +64,7 @@ To run and use the app you will need to do the following:
 - JSX
 - Axios
 - Bulma
-- SCSS
+- CSS
 - React Router Dom
 
 ### Dev tools:
@@ -84,9 +84,9 @@ To run and use the app you will need to do the following:
 
 Key Dates:
 
-- Day 1-3 - Planning, Basic Structure, & Authorization
-- Day 4-5 - Hit MVP
-- Day 6-7 - Add final features
+- Day 1-3 - Planning, Create Basic Structure, & Authorization
+- Day 4-5 - Endpoints, Displaying Podcasts, Further Styling
+- Day 6-7 - Display Episodes, Search Functionality, Further Styling
 
 ### Day 1-3:
 
@@ -223,30 +223,6 @@ function SearchPage() {
 
 export default SearchPage
 ```
-
-//////////////////////////////
-//////////////////////////////
-//////////////////////////////
-//////////////////////////////
-//////////////////////////////
-
----
-
-## Login:
-
-![Alt text](https://user-images.githubusercontent.com/83005220/146195285-9ce09968-434e-4d71-babf-03bcebb997b3.gif 'Login Page')
-
-## Podcast page:
-
-![Alt text](https://user-images.githubusercontent.com/64632596/132090747-48032083-ebb0-4fd9-8d19-d89dc6b0c445.png 'Podcast page')
-
-## Episodes page:
-
-![Alt text](https://user-images.githubusercontent.com/64632596/132094747-edbec160-0fc4-467e-bd41-e656259d0910.png 'Episodes Page')
-
-## Search page:
-
-![Alt text](https://user-images.githubusercontent.com/64632596/132090824-6d1aa6d9-7eb6-4198-af31-3d232bae2be7.png 'Search Results Page')
 
 ## Wins & Struggles
 
