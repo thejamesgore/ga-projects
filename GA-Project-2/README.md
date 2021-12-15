@@ -8,7 +8,6 @@ Table of Contents:
 - Technologies Used
 - Approach Taken & Timeline
 - Featured Code
-- Screenshots
 - Bugs
 - Wins and Challenges
 - Future Content and Improvements
@@ -99,10 +98,124 @@ Search functionality
 Displaying episodes
 Further styling
 
-- Featured Code
+## Featured Code
+
+---
+
+Below is code from our SearchPage.js which has the functionality to not only search based on the users's search request but also render the results in a SearchCard subcomponent. Bar some tweaking this was completely my responsibility.
+
+The search bar is displayed in the NavBar.js using an input which once a user submits a search query the user is pushed to SearchPage.js with their string in the browsers address bar.
+
+The following code allows us to pull and format their search query from their address bar and store it as variable
+
+```javascript
+let string = window.location.pathname.substring(9)
+```
+
+A useEffect function triggers when the page loads but also when it's dependency variable `window.location.href` changes calling our handleSearch function. This is so if a user has submitted a search query whilst on another page we can render search results immediately by calling our handleSearch function but also if a user enters a new search query while already on this page too.
+
+```javascript
+useEffect(() => {
+  handleSearch()
+}, [window.location.href])
+```
+
+Next we use axios to call the Spotify search endpoint with our string variable passing in the access token stored in local storage during login via the `token` variable in the header.
+
+```javascript
+const token = localStorage.getItem('accessToken')
+```
+
+```javascript
+axios.get(
+  `https://api.spotify.com/v1/search?q=${string}&type=show&market=US&limit=25&offset=0`,
+  {
+    headers: {
+      Authorization: 'Bearer ' + token,
+    },
+  }
+)
+```
+
+We take the resonse from our API call and only store the show information from our data object in state using `setResults(response.data.shows)`. We also store any errors, console them out.
+
+```javascript
+   .then((response) => {
+        setResults(response.data.shows)
+      })
+      .catch((err) => {
+        console.error('there was an error fetching podcasts', err)
+      })
+    setSearchAddress(window.location.href)
+  }
+```
+
+We then display this data using the SearchCard subcomponent and the show data stored in the state in the `results` variable. We used optional chaining `results?.items` as upon first render of the page there may be no data stored in this state thus giving an error when the page loads. Using a turnary we then conditionally rendered the data mapping over the SearchCard subcomponent.
+
+```javascript
+return (
+  <div className="results-page">
+    {results?.items
+      ? results.items.map((item) => <SearchCard key={item[0]} {...item} />)
+      : null}
+  </div>
+)
+```
+
+The full page can be found below.
+
+```javascript
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import SearchCard from '../components/SearchCard'
+import '../styles/SearchPage.css'
+
+function SearchPage() {
+  const [searchAddress, setSearchAddress] = useState()
+  const [results, setResults] = useState({})
+  const token = localStorage.getItem('accessToken')
+
+  const handleSearch = () => {
+    let string = window.location.pathname.substring(9)
+
+    axios
+      .get(
+        `https://api.spotify.com/v1/search?q=${string}&type=show&market=US&limit=25&offset=0`,
+        {
+          headers: {
+            Authorization: 'Bearer ' + token,
+          },
+        }
+      )
+      .then((response) => {
+        setResults(response.data.shows)
+      })
+      .catch((err) => {
+        console.error('there was an error fetching podcasts', err)
+      })
+    setSearchAddress(window.location.href)
+  }
+
+  useEffect(() => {
+    handleSearch()
+  }, [window.location.href])
+
+  return (
+    <div className="results-page">
+      {results?.items
+        ? results.items.map((item) => <SearchCard key={item[0]} {...item} />)
+        : null}
+    </div>
+  )
+}
+
+export default SearchPage
+```
+
 - Screenshots
 - Bugs
 - Wins and Challenges
+
 - Future Content and Improvements
 - Key Learnings
 
@@ -192,10 +305,3 @@ We were able to use the search bar once, call the function and push the user to 
 ## What we learnt:
 
 Working with APIs with such complexity is not always easy but we now have a better understanding of the process of accessing APIs and fetching data to then handle it. What was useful is that Spotify has extensive documentation which makes it helpful as a guide. However, we found that looking at other projects helped to solidify how to approach various tasks with practical examples, using the API 'in the wild'.
-
-## Would we recommend trying this?
-
-Yes, if you're ready to spend time understanding the API, you will be rewarded with the rich data available.
-
-C'mon it's Spotify dude, give it a go!
-..Ta da dum da dum dum
