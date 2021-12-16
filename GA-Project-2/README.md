@@ -17,11 +17,12 @@ Table of Contents:
 
 ---
 
-A spotify podcast feed which provides the latest episodes to scroll through for the user. This feature does not currently exist in Spotify desktop at present. This was the first project created in collaboration with another team member. This app consumed the Spotify API to provide an easier way to discover your latest podcast episode releases, find all podcasts you are subscribed to, and easily search the podcast directory which at the time of creating this project were all features missing from the Spotify desktop app or were in extremely difficult to find sections.
+A podcast feed using the Spotify API that allows the user to easily see all the podcasts they're subscribed to and the latest episodes for those shows. At the time of development this feature was extremely difficult to find in the Spotify desktop app which we were both avid users of and enjoy listening to podcasts.
 
-We had 7 days to complete and present this project.
+This was a collaborative two person project with a 7 day timeframe to complete and present our work.
 
 Live Version:
+Original Repository With Full Commit History: https://github.com/thejamesgore/spotify-podcast-app
 
 ![Alt text](https://user-images.githubusercontent.com/64632596/132090747-48032083-ebb0-4fd9-8d19-d89dc6b0c445.png 'Podcast page')
 
@@ -69,12 +70,11 @@ To run and use the app you will need to do the following:
 
 ### Dev tools:
 
-- VS code
+- Visual Studio Code
 - Yarn
 - Postman
 - Git
 - Github
-- Google Chrome dev tools
 - Evernote (Wireframeing)
 - Netlify (deployment)
 
@@ -84,37 +84,53 @@ To run and use the app you will need to do the following:
 
 Key Dates:
 
-- Day 1-3 - Planning, Create Basic Structure, & Authorization
-- Day 4-5 - Endpoints, Displaying Podcasts, Further Styling
-- Day 6-7 - Display Episodes, Search Functionality, Further Styling
+- Day 1-3 - Planning, Create Basic Structure & Styling, & Authorization
+- Day 4-5 - Endpoints, Display Podcast Feed, Styling
+- Day 6-7 - Display Episode Feed, Search Functionality, Further Styling
 
 ### Day 1-3:
 
-Our initial vision was to create an alternate podcast UI for Spotify with our own twist, to have a list of your podcasts and be able to play the latest episodes easily from one place. We began to create wireframes settling on a simple multipage layout with our focus primarily on functionality and prioritising which features would enable us to hit our MVP. We divided responsbilities based on interests as we had similar aptitudes and decided to start to build the basics such as a home page, navigation bar, and a login button with some simple styling.
+We both decided to use the Spotify API to create a project because not only did we both already use Spotify and found some elements to be lacking in the desktop version, we both knew this would be a challenging yet fun project to undertake that would challenge us and provide the most opportunity for growth with our coding.
 
-![Alt text](https://user-images.githubusercontent.com/83005220/146195285-9ce09968-434e-4d71-babf-03bcebb997b3.gif 'Login Page')
+We started planning what features we would love to use ourselves and filtered those down to what would be appropriate for our project. We then began to create wireframes settling in on a simple multipage layout with our focus primarily on functionality and prioritising which features would enable us to hit our MVP. We initially began pair coding alternating every hour or so and start to build the basics such as a home page, navigation bar, and a login button with some simple styling. I created the login button with functionality, search bar, and styling using Bulma while Clem built the structure and basic navigation.
+
+### Wireframe:
+
+![Alt text](https://user-images.githubusercontent.com/83005220/146286111-da4a1b46-657c-4f8d-8b1d-f08aad39bae2.png 'Wire Frame')
+
+We then turned our attention to authroization as it seemed it would be challenging.
 
 Due to the complexity and variety of features of the Spotify API a great deal of our time was then spent understanding the 4 different authorization methods available and which would be best suited for our project. Similar to my first project we understood this could be quite an undertaking and would stretch our abilities personaphied by our initial struggle during the first 3 days to purely get data back from the API. This was due to the authorization process, which upon reflection is quite straightforward, however we were missing one final key element that would enable us to proceed.
 
 Once we managed to cross this final hurdle with the authorization process we were able to flesh out the basic structure and styling of the website. We both worked on the same aspects of the project up until this point pair coding, alternating where neccessary, as we believed these early stages were mission critical and two minds working to solve this problem would be better than one.
 
+### Landing Page:
+
+![Alt text](https://user-images.githubusercontent.com/83005220/146195285-9ce09968-434e-4d71-babf-03bcebb997b3.gif 'Login Page')
+
 ### Day 4-5:
 
-Endpoints
-Displaying podcasts
-Styling
+We next split responsiblities to focus on different aspects of the project that wouldn't conflict to catch up on development time such as building podcast page, episode page, and the subcomponents that would we be displayed across the site. Developement was much more expeditious as we were able to handle the data from the Spotify API however as we continued to dive deeper into the documentation it was clear within the timeframe we presently had we would not be able to include a player which would've been a 'nice to have'.
+
+We were able to hit our MVP during this time as we had planned to originally which was a nice relief.
+
+### Podcasts Page:
+
+![Alt text](https://user-images.githubusercontent.com/64632596/132090747-48032083-ebb0-4fd9-8d19-d89dc6b0c445.png 'Podcast page')
 
 ### Day 6-7:
 
-Search functionality
-Displaying episodes
-Further styling
+We were able to easily create the episodes page as the layout was not too disimilar from the podcasts page allowing us to use the same subcomponents, however the functionality slightly differed. We also developed the search functionality which was slightly challenging due to how the page would render which was solved using optional chaining. Lastly we added some finishing touches to the styling and presented our project.
+
+### Search Page:
+
+![Alt text](https://user-images.githubusercontent.com/64632596/132090824-6d1aa6d9-7eb6-4198-af31-3d232bae2be7.png 'Search page')
 
 ## Featured Code
 
 ---
 
-Below is code from our SearchPage.js which has the functionality to not only search based on the users's search request but also render the results in a SearchCard subcomponent. Bar some tweaking this was completely my responsibility.
+Below is code from our SearchPage.js which has the functionality to not only search based on the users's query but also render the results mapped over a SearchCard subcomponent. Bar some styling this was my responsibility.
 
 The search bar is displayed in the NavBar.js using an input which once a user submits a search query the user is pushed to SearchPage.js with their string in the browsers address bar.
 
