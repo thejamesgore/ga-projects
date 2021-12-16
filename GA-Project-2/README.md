@@ -19,7 +19,7 @@ Table of Contents:
 
 A podcast feed using the Spotify API that allows the user to easily see all the podcasts they're subscribed to and the latest episodes for those shows. At the time of development this feature was extremely difficult to find in the Spotify desktop app which we were both avid users of and enjoy listening to podcasts.
 
-This was a collaborative two person project with a 7 day timeframe to complete and present our work.
+This was a collaborative two person project with a 7 day timeframe to complete and present our work and my first project working with someone else.
 
 Live Version:
 Original Repository With Full Commit History: https://github.com/thejamesgore/spotify-podcast-app
@@ -90,9 +90,9 @@ Key Dates:
 
 ### Day 1-3:
 
-We both decided to use the Spotify API to create a project because not only did we both already use Spotify and found some elements to be lacking in the desktop version, we both knew this would be a challenging yet fun project to undertake that would challenge us and provide the most opportunity for growth with our coding.
+We both decided to use the Spotify API for our project as not only did we both already use Spotify and found some elements to be lacking in the desktop version. We both knew this would be a challenging yet fun project to undertake that would push our ability and provide the most opportunity for learning and growth with our coding.
 
-We started planning what features we would love to use ourselves and filtered those down to what would be appropriate for our project. We then began to create wireframes settling in on a simple multipage layout with our focus primarily on functionality and prioritising which features would enable us to hit our MVP. We initially began pair coding alternating every hour or so and start to build the basics such as a home page, navigation bar, and a login button with some simple styling. I created the login button with functionality, search bar, and styling using Bulma while Clem built the structure and basic navigation.
+We started planning what features we would love to use ourselves and filtered those down to what would be appropriate for our project. We then began to create wireframes settling in on a simple multipage layout with our focus primarily on functionality and prioritising which features would enable us to hit our MVP. We initially began pair coding alternating every hour or so to start to build the basics such as a home page, navigation bar, and basic styling to give us a starting point to both work from. I created the login button with functionality, search bar, and styling using Bulma while Clem further built out the site structure and basic navigation.
 
 ### Wireframe:
 
@@ -100,9 +100,45 @@ We started planning what features we would love to use ourselves and filtered th
 
 We then turned our attention to authroization as it seemed it would be challenging.
 
-Due to the complexity and variety of features of the Spotify API a great deal of our time was then spent understanding the 4 different authorization methods available and which would be best suited for our project. Similar to my first project we understood this could be quite an undertaking and would stretch our abilities personaphied by our initial struggle during the first 3 days to purely get data back from the API. This was due to the authorization process, which upon reflection is quite straightforward, however we were missing one final key element that would enable us to proceed.
+Due to the complexity and variety of features of the Spotify API a great deal of our time was then spent understanding the 4 different authorization methods available and which would be best suited for our project. However this was unexactedly quite a hurdle initially and took much longer than expected. This was due to the authorization process, which upon reflection now is quite straightforward, however we were missing some key elements that would enable us to proceed and sucessfully get data back from the API. This is detailed further in the Wins & Challenges section.
 
-Once we managed to cross this final hurdle with the authorization process we were able to flesh out the basic structure and styling of the website. We both worked on the same aspects of the project up until this point pair coding, alternating where neccessary, as we believed these early stages were mission critical and two minds working to solve this problem would be better than one.
+Two functions I created in the SpotifyAuth.js file are below which parse the url Spotify provides the user when they attempt to login some of which contains the bearer token and the function that stores the token in local storage and pushes the user the the podcast page upon successfully logging in.
+
+```javascript
+// This function parses the string provided by spotify which contains the bearer token and just returns the token
+const getReturnedParamsFromSpotifyAuth = (hash) => {
+  const stringAfterHashtag = hash.substring(1)
+  const paramsInUrl = stringAfterHashtag.split('&')
+  const paramsSplitUp = paramsInUrl.reduce((accumulater, currentValue) => {
+    const [key, value] = currentValue.split('=')
+    accumulater[key] = value
+    return accumulater
+  }, {})
+  return paramsSplitUp
+}
+
+// This function places the bearer token in local storage
+const SpotifyAuth = () => {
+  const history = useHistory()
+
+  useEffect(() => {
+    if (window.location.hash) {
+      const { access_token, expires_in, token_type } =
+        getReturnedParamsFromSpotifyAuth(window.location.hash)
+
+      localStorage.clear()
+
+      localStorage.setItem('accessToken', access_token)
+      localStorage.setItem('tokenType', token_type)
+      localStorage.setItem('expiresIn', expires_in)
+      history.push('/podcast')
+      if (history.location.pathname === '/podcast') {
+      }
+    }
+  })
+```
+
+Once we managed to cross the final hurdle with the authorization process we were able to get data back from the API. We both worked on the same aspects of the project up until this point pair coding, alternating where neccessary, as we believed these early stages were mission critical and two minds working to solve this problem would be better than one.
 
 ### Landing Page:
 
@@ -110,9 +146,9 @@ Once we managed to cross this final hurdle with the authorization process we wer
 
 ### Day 4-5:
 
-We next split responsiblities to focus on different aspects of the project that wouldn't conflict to catch up on development time such as building podcast page, episode page, and the subcomponents that would we be displayed across the site. Developement was much more expeditious as we were able to handle the data from the Spotify API however as we continued to dive deeper into the documentation it was clear within the timeframe we presently had we would not be able to include a player which would've been a 'nice to have'.
+We next split responsiblities to focus on different aspects of the project that wouldn't conflict to catch up on development time such as building podcast page, episode page, and the subcomponents that would we be displayed across the site. Developement was much more expeditious as we were able to handle the data from the Spotify API however as we continued to dive deeper into the documentation it was clear within the timeframe we presently had we would not be able to include a player which would've been a 'nice to have'. Clem worked on the card componenets while I worked on the podcast page utilizing axios however we helped each other where neccessary jumping in to pair code to get a 2nd pair of eyes on a particular problem.
 
-We were able to hit our MVP during this time as we had planned to originally which was a nice relief.
+We were able to hit our MVP on day 5 as we had planned to originally which was a nice relief.
 
 ### Podcasts Page:
 
@@ -120,7 +156,7 @@ We were able to hit our MVP during this time as we had planned to originally whi
 
 ### Day 6-7:
 
-We were able to easily create the episodes page as the layout was not too disimilar from the podcasts page allowing us to use the same subcomponents, however the functionality slightly differed. We also developed the search functionality which was slightly challenging due to how the page would render which was solved using optional chaining. Lastly we added some finishing touches to the styling and presented our project.
+We were able to easily create the episodes page as the layout was not too disimilar from the podcasts page allowing us to use the same subcomponents, however the functionality slightly differed. Clem worked on the episodes page providing which had a bug when clicking from the podcast page that we were unable to solve for completely which is detailed in the bug section. I focused on the search functionality which was slightly challenging due to how the page would initially render without data that I was able to solve using optional chaining. Lastly we added some finishing touches to the styling and presented our project.
 
 ### Search Page:
 
