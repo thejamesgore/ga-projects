@@ -23,6 +23,24 @@ This was a collaborative three person project with a 14 day timeframe to complet
 
 Live Version:
 
-Original Repositories With Full Commit Histories: 
+Original Repositories With Full Commit Histories 
 https://github.com/thejamesgore/ga-project-3-back-end
 https://github.com/thejamesgore/ga-project-3-front-end
+
+## Code Installation
+
+## The Brief
+
+## Technologies Used
+
+## Approach Taken & Timeline
+
+## Featured Code
+
+## Bugs
+
+## Wins and Challenges
+
+## Key Learnings
+
+## Future Content and Improvements
