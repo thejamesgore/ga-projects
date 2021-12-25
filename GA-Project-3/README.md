@@ -21,7 +21,7 @@ An app to track your travels and share with the travel community your experience
 
 This was a collaborative three person project with a 14 day timeframe to complete and present our work.
 
-![Alt text](https://user-images.githubusercontent.com/83005220/147378187-2b8df96a-3b3e-43af-a647-907b9e091d49.png 'Landing Page')
+![Alt text](https://user-images.githubusercontent.com/83005220/147380884-179a6852-6e46-4678-bf6c-a0cde15436c2.png 'Landing Page')
 
 Live Version:
 
