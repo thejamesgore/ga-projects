@@ -17,9 +17,11 @@ Table of Contents:
 
 ---
 
-An app to track your travels and share with the travel community with a members dashboard featuring a map with each location visisted, a status bar to track how many countries travelled to so far, and a subsection with each trip a user has been on with their comments of how the trip went.
+An app to track your travels and share with the travel community your experiences with a members dashboard featuring a map with a drop pin of each location visisted, a status bar to track how many countries travelled to so far, and a subsection with each trip a user has been on with their comments of how the trip went.
 
 This was a collaborative three person project with a 14 day timeframe to complete and present our work.
+
+![Alt text](https://user-images.githubusercontent.com/83005220/147378187-2b8df96a-3b3e-43af-a647-907b9e091d49.png 'Landing Page')
 
 Live Version:
 
@@ -82,7 +84,7 @@ https://github.com/thejamesgore/ga-project-3-front-end
 
 ---
 
-Brainstormed ideas settled on one early on then further brainstormed features our project should have and the required models. We then used Figma to create a basic design
+Brainstormed ideas settling in on one early on then further brainstormed features our project should have and the required models. We decided the first week should be dedicated to project planning and fleshing out the backend while the second week was focused on creating the frontend. We then used Figma to create a basic design.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378251-4d6d1835-4c1e-4931-9450-c031b91d41fb.png 'Figma')
 
@@ -105,8 +107,6 @@ I created membersdashboard, pulls all countries user has visisted from the backe
 
 I used Pexals Image API to use the country user has visisted to search for an image and add it to the country card
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378205-dbf4ff22-c232-4f36-b00d-b774a0fc5f6b.png 'Members cards')
-![Alt text](https://user-images.githubusercontent.com/83005220/147378205-dbf4ff22-c232-4f36-b00d-b774a0fc5f6b.png 'Members cards')
-
 
 
 I created map component
@@ -128,7 +128,7 @@ Map Code
 
 ---
 
-When a user logs in upon first render of the page one or none of the drop pins on the map will display despite the user having visisted many countries until the user interacts with the map.
+A bug we faced was when a user logs in upon first render of the page one or none of the drop pins on the map will display despite the user having visisted many countries until the user interacts with the map.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378322-4686b378-a9e5-4d3f-ac0d-a0600102ce8b.gif 'Map Bug')
 
@@ -137,10 +137,18 @@ When a user logs in upon first render of the page one or none of the drop pins o
 
 ---
 
+Using maps, problem solving how to turn country names from a data base into map coordinates and images on the country cards
+
+One of the challenges was how we set up our backend initially with regards to models. We had to make a slight modification to be able to populate user data and also allow comments for each trip. This meant some of our data that we added to our database had missing data.
+
 ## Key Learnings
 
 ---
 
+Have a very clear idea of what precisely will be the funcitonality of the app so you can clearly define models from the outset so they don't need to be modified later during development, however I would assume as apps become more successful and grow models will need to be updated to accomodate future features.
+
 ## Future Content and Improvements
 
 ---
+
+The majority of my focus on was functionality as I believed it would potentially be extremely challenging to achieve the functionality I had planned for in the members dashboard given our time requirements especially as we had to revisit our backend to solve a problem during our second week which was meant to be completely dedicated to our front end. More time can be spent improving styling overall on the website. As well as this edit functionality in the members area can be added.
