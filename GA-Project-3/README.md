@@ -210,11 +210,7 @@ I also wanted to make the Country Cards of each place a user had visted more int
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378205-dbf4ff22-c232-4f36-b00d-b774a0fc5f6b.png 'Members cards')
 
-I created map component
-
-I created status bar
-
-I styled the login & register pages to match the members dashboard.
+Lastly I created a progress bar of countries visisted while my team worked on styling the rest of the website, finishing responsive search and creating the login and register pages which I styled to match the members dashboard.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378212-663cd9e6-dd77-423a-8c9a-84ee45f7f25e.png 'Register Page')
 
@@ -222,7 +218,97 @@ I styled the login & register pages to match the members dashboard.
 
 ---
 
-Map Code
+As I was responsible for the members dashboard below are some key excerpts I'm proud of that were challenging which allow our API to be functional with the external API's I chose to use.
+
+Firstly we need to get all countries for the user that is logged in and set it to some state with `setCountries`.
+
+```Javascript
+  useEffect(() => {
+    getAllCountries().then(function (response) {
+      setCountries(response.data)
+    })
+  }, [])
+```
+
+Next as we will need to filter all the countries by the current user that is logged in we have a user effect that finds the userId based on the token in local storage and calls an end point. Although we could've created an endpoint to get countries by userId I didn't want to add extra work for my team at the time as they were already problem solving an issue on the backend and our project time was almost over so used this as a work around.
+
+```Javascript
+ useEffect(() => {
+    const token = localStorage.getItem('token')
+    getUser(token).then((response) => setUserId(response))
+  }, [])
+```
+
+As the getAllCountries function gets all data related to where a user has visited not just the country names we need to filter this down to just country names matching the current user and set it to some state `setUserCountries`. However as our database at the time recorded the username of our users when they posted data and not the userId I had to match `userId.data.username`. We've changed this in our backend so now userId is displayed also however this is not reflected in our frontend yet. For better semantic sense `setUserCountries` could be `setCountryNames`.
+
+As we will also use this data to map over our MembersCard.js component and I didn't want to filter the data again later I set this newly filtered data to it's own state to use later `setCountryData`. For better semantic sense this could be `setFilteredCountryData`.
+
+```Javascript
+useEffect(() => {
+    if (!userId || !countries) {
+      return
+    } else {
+      const username = userId.data.username
+      const countryKey = countries.filter((country) => country.createdBy)
+      let mappedKey = countryKey.map((item) => ({
+        name: item.name,
+        createdBy: item.createdBy.username,
+      }))
+      let finalCountries = mappedKey.filter(
+        (country) => country.createdBy == username
+      )
+      setUserCountries(finalCountries)
+
+            let countryDataParsed = countryKey
+        .map((item) => ({
+          name: item.name,
+          city: item.city,
+          yearVisited: item.yearVisited,
+          comments: item.comments,
+          rating: item.rating,
+          createdBy: item.createdBy.username,
+        }))
+        .filter((country) => country.createdBy == username)
+      setCountryData(countryDataParsed)
+      // console.log(`COUNTRYDATAAA >>>> `, countryDataParsed)
+    }
+  }, [userId, countries])
+
+```
+
+Next we have our Geocode function `getCoordinates` which allows you to pass in a string of location, recieve a latitude and longditude, push the coordinates into an array variable `geocodedCountries` and set that to some state using `setCoordinates`. We have a use effect that calls this function when it's dependcy array `userCountries` changes, which we set in the previous block of code.
+
+```Javascript
+  useEffect(() => {
+    if (!userCountries) {
+      return
+    }
+    const array = userCountries
+    for (let i = 0; i < array.length; i++) {
+      getCoordinates(array[i].name)
+    }
+    // console.log(`number of user countries are`, array.length)
+  }, [userCountries])
+
+const getCoordinates = async (location) => {
+    Geocode.fromAddress(location).then(
+      (response) => {
+        geocodedCountries.push(response.results[0].geometry.location)
+        console.log(`Data from function`, geocodedCountries)
+        setCoordinates(geocodedCountries)
+      },
+      (error) => {
+        console.error(error)
+      }
+    )
+  }
+```
+
+Now we have our coordinates in some state called `coordinates` we can easily pass this down via props to a our map component and handle that data to create drop pins on the map component to ensure the this file is as short and readable as possible.
+
+```Javascript
+<Map props={coordinates} />
+```
 
 ## Bugs
 
