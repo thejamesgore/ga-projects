@@ -194,20 +194,28 @@ I set up a postman workspace so if any member of the team wished to test any fun
 
 ### Day 8-9:
 
+Similar to our initial approach creating our backend, we coded as a group and initialized our React frontend locally on my machine using Zoom and VS Code Live Share to edit the same project file ensuring a functional base frontend we could push to git hub. We created a simple layout, functionality to call our backend using Axios, and the basics of responsive search on our coutries page. From here my focus was purely on the members dashboard while my team created other aspects of the app such as CountriesCard component and search.
+
 ### Day 10-14:
 
-I created membersdashboard, pulls all countries user has visisted from the backend, sends the name of these countries to google Geocode which converts the country name to a longditude and latitude and returns it which is stored in state, this is then passed and converted to a format that works with React Map GL which renders the map on screen and allows drop pins.
+I created the members dashboard settling in on using React Map GL due to users being able to have 10,000 API calls per month for free compared to Google which past a certain amount of API calls will charge. Despite this I would end up having to use the Google Api regardless. I created a basic form to create trips and post data to our database however this highlighted one issue with our models which were comments. This meant we had to revisit our backend and tweak our models to enable comments to be posted correctly. This was partly due to the fact we have many to many relationships between our models.
 
-![Alt text](https://user-images.githubusercontent.com/83005220/147378202-aa12e86a-b9ee-46f5-9cb5-fc1e33bba0d1.png 'Membersdashboard')
+This was challenging as we were unsure why we were facing this issue. Although I spent some time identifying the problem using postman and revisiting the backend with my team, once we understood why we were unable to post comments my focus returned to the members dashboard. I was able to use the CountriesCard component my team had made and map all the countries a user had visisted over the component creating members cards giving details of their trip. The I hardcoded data into the map componenet to display drop pins to demonstrate that conceptually the map component is operating successfully. The next challenge was turning the user data from the database into latitude and longditude coordinates that map component would then be able to display.
 
-I used Pexals Image API to use the country user has visisted to search for an image and add it to the country card
+Ultimately I used Google Geocode API which allows one to send a string of a location and recieve back a multitude of data back some of which were the latitude and longditude for that location. Once that data was sent back from Google Geocode I simply set it into some state and passed it down through props which mapped it over the map subcomponent on the dashboard page.
+
+![Alt text](https://user-images.githubusercontent.com/83005220/147378202-aa12e86a-b9ee-46f5-9cb5-fc1e33bba0d1.png 'Members Dashboard')
+
+I also wanted to make the Country Cards of each place a user had visted more interesting so searched for image APIs which served an image if you submitted a location. I used Pexals Image API as it was free and seemed to produce the most accurate images based on the string, however it isn't perfect and sometimes provides a seemling unrelated image. Here I found two more bugs. When a user first logs in all the drop pins on the map will not render without the map being moved by the user. Secondly environment variables weren't working when using dotenv and as we were still trying to fix the backend comments issue decided to hardcode the API keys and clean up the code once we were able to.
+
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378205-dbf4ff22-c232-4f36-b00d-b774a0fc5f6b.png 'Members cards')
 
 I created map component
 
 I created status bar
 
-I created login & register pages
+I styled the login & register pages to match the members dashboard.
+
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378212-663cd9e6-dd77-423a-8c9a-84ee45f7f25e.png 'Register Page')
 
 ## Featured Code
