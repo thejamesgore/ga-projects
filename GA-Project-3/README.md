@@ -27,12 +27,13 @@ Live Version:
 
 Please feel free to login using the following credentials:
 
-email: jamestkirk@gmail.com
-password: pass123
+- email: jamestkirk@gmail.com
+- password: pass123
 
-Original Repositories With Full Commit Histories 
-https://github.com/thejamesgore/ga-project-3-back-end
-https://github.com/thejamesgore/ga-project-3-front-end
+Original Repositories With Full Commit Histories
+
+- https://github.com/thejamesgore/ga-project-3-back-end
+- https://github.com/thejamesgore/ga-project-3-front-end
 
 ## Code Installation
 
@@ -62,6 +63,7 @@ Clone or download the repo then in your Terminal run the following commands:
 ### Back-End:
 
 - Express
+- MongoDB
 - Mongoose
 - Mongoose Hidden
 - Mongoose Unique Validator
@@ -101,10 +103,9 @@ Clone or download the repo then in your Terminal run the following commands:
 Key Dates:
 
 - Day 1-3 - Planning, Creating Basic Backend, User Models, Controllers, & Seed Data
-- Day 4-7 - Creating Middleware, Endpoints, Authorization, Secure Routes, & Testing Endpoints In Postman
+- Day 4-7 - Adding Further Middleware, Endpoints, Authorization, Secure Routes, & Testing Endpoints In Postman
 - Day 8-9 - Creating Basic Layout, Calling Endpoints Using Axios, Responsive Search
-- Day 10-14 - Mapping User Data, Creating Members Dashboard, Adding 3rd Party APIs
-
+- Day 10-14 - Mapping User Data, Expanding Members Dashboard, Adding 3rd Party APIs
 
 ### Day 1-3:
 
@@ -122,19 +123,76 @@ Below is our Trello kanban board post project completion.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378181-f9230e4a-d742-49de-a22e-28c8f29f6206.png 'Trello Kanban Board')
 
-Assigned upcoming tasks that wouldn't conflict
-Initially focused on building the backend together, deciding the neccessary models
-
 ### Day 4-7:
 
-Created endpoints
+From here as a team we were able to develop the different aspects of the backend we were individually responsible for at a similar pace helping each other as we went, pushing and merging code when we hit small significant milestones, which meant we could spend a moderate amount of time checking each others work for quality assurance and allocate time to testing.
 
-I tested the endpoints in postman
+We applied further middleware to ensure functionality such as CORS and environment variables using DotEnv and proceeded to create our endpoints, authorization, and secure routes. My focus after adding some key endpoints and was to create a secure route using jsonwebtoken and dotenv to enable registration & login on the front end and endpoints that require a bearer token to access.
+
+```Javascript
+import jwt from 'jsonwebtoken'
+import User from '../models/user.js'
+import dotenv from 'dotenv'
+
+dotenv.config();
+
+//make sure that the user making the request has a valid token
+async function secureRoute(req, res, next) {
+  try {
+    //get the token from the headers
+    const authToken = req.headers.authorization;
+
+    //if there is no token or the string doesnt start with Bearer, return anathorised
+    if (!authToken || !authToken.startsWith("Bearer")) {
+      return res
+        .status(401)
+        .send({ message: "Not authorized to perform this funciton" });
+    }
+
+    //strip the Bearer part of the token out as it doesnt hold any data
+
+    const token = authToken.replace("Bearer ", "");
+
+    console.log("🤖 AUTHTOKEN" + " " + authToken);
+    console.log("🤖 STRIPPED TOKEN" + " " + token);
+
+    //try to extract the data on the token using the secret. Also handles errors
+
+
+    jwt.verify(token, process.env.SECRET, async (err, data) => {
+      if (err) {
+        return res.status(401).send({ message: "Unauthorized" });
+      }
+
+      console.log("RESPONSE FROM JWT IS >>> ", data);
+
+      //find the user by id using the id on the token (set in the user controller)
+
+      const user = await User.findById(data.userId);
+
+      if (!user) {
+        return res.status(404).send({ message: "User not found" });
+      }
+
+      //object level permissions - we will come back to this later
+      req.currentUser = user;
+
+      next();
+    });
+  } catch (err) {
+    console.log(err);
+    return res.status(401).send({ message: "Unauthorized user!!" });
+  }
+}
+
+export default secureRoute;
+```
+
+I set up a postman workspace so if any member of the team wished to test any functionality locally they would be able to however we mostly used zoom and postman on my machine for time efficiency. We tested our endpoints with and without a bearer token for those that were and weren't locked down by our secure route.
+
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378515-e67aa3af-abc5-4705-aa3f-862739922330.png 'Postman')
 
 ### Day 8-9:
-
-
 
 ### Day 10-14:
 
@@ -145,15 +203,12 @@ I created membersdashboard, pulls all countries user has visisted from the backe
 I used Pexals Image API to use the country user has visisted to search for an image and add it to the country card
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378205-dbf4ff22-c232-4f36-b00d-b774a0fc5f6b.png 'Members cards')
 
-
 I created map component
 
 I created status bar
 
 I created login & register pages
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378212-663cd9e6-dd77-423a-8c9a-84ee45f7f25e.png 'Register Page')
-
-
 
 ## Featured Code
 
@@ -168,7 +223,6 @@ Map Code
 A bug we faced was when a user logs in upon first render of the page one or none of the drop pins on the map will display despite the user having visisted many countries until the user interacts with the map.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378322-4686b378-a9e5-4d3f-ac0d-a0600102ce8b.gif 'Map Bug')
-
 
 ## Wins and Challenges
 
