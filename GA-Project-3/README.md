@@ -92,6 +92,7 @@ Clone or download the repo then in your Terminal run the following commands:
 - Github
 - Figma
 - Trello
+- Zoom
 
 ## Approach Taken & Timeline
 
@@ -99,9 +100,9 @@ Clone or download the repo then in your Terminal run the following commands:
 
 Key Dates:
 
-- Day 1-3 - Planning, Creating Basic Backend, Seed Data, User Models, & Controllers
+- Day 1-3 - Planning, Creating Basic Backend, User Models, Controllers, & Seed Data
 - Day 4-7 - Creating Middleware, Endpoints, Authorization, Secure Routes, & Testing Endpoints In Postman
-- Day 8-9 - Creating Basic Layout, Calling Endpoints Using Axios
+- Day 8-9 - Creating Basic Layout, Calling Endpoints Using Axios, Responsive Search
 - Day 10-14 - Mapping User Data, Creating Members Dashboard, Adding 3rd Party APIs
 
 
@@ -111,8 +112,13 @@ We decided the first week should be dedicated to project planning and fleshing o
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378251-4d6d1835-4c1e-4931-9450-c031b91d41fb.png 'Figma')
 
-
 We then set up a trello kanban board to enable agile working with a backlog of tasks ranked and assigned to each member of the team, most of which were all group tasks initially so we could hone in on the models we would need based on the project requirements, and have a base backend from which we could then work on separately.
+
+For the sake of simplicity and an expeditious initial coding experience we would all group code using VS Code Live Share and Zoom to create the base backend database using Express and MongoDB taking turns to code different aspects of the same element of our backend or code compelete aspects solo while others made suggestions. This ensured a smooth coding experience and also allowed us to allocate days to our timelime purely for problem solving or for aspects that would be unexpectedly significantly demanding and take more time than expected which did happen.
+
+After settling in on our models for the project we then assigned different responsbilities on our kanban board that would not conflict with each other while using VS Code Live Share to develop different aspects of the backend at the same time to ensure functionality at this early stage. We took one model each, then focused on creating the relevant controllers for each model, shared our work with the group, created the seed data together and tested it successfully.
+
+Below is our Trello kanban board post project completion.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378181-f9230e4a-d742-49de-a22e-28c8f29f6206.png 'Trello Kanban Board')
 
@@ -177,6 +183,8 @@ One of the challenges was how we set up our backend initially with regards to mo
 ---
 
 Have a very clear idea of what precisely will be the funcitonality of the app so you can clearly define models from the outset so they don't need to be modified later during development, however I would assume as apps become more successful and grow models will need to be updated to accomodate future features.
+
+Structuring the way one works with others is crucial to ensure efficient use of time. This means the obvious such as using agile working, strong initial planning, and assigning jobs to people based on interest and capacity or desire to work on a task. However, this also extends to how day to day coding works too such as scheduling time in a group as we all were working full time and also had responsibilities outside of the immersive that were time demanding but also small things such as having one person also run a working base version of the code from which everyone can live code and contribute to initially and pushing the groups work to git hub, until individuals are able to work on aspects that when merged wont intefere with the functionality of the existing code base.
 
 ## Future Content and Improvements
 
