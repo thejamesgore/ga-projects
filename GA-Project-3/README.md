@@ -25,11 +25,24 @@ This was a collaborative three person project with a 14 day timeframe to complet
 
 Live Version:
 
+Please feel free to login using the following credentials:
+
+email: jamestkirk@gmail.com
+password: pass123
+
 Original Repositories With Full Commit Histories 
 https://github.com/thejamesgore/ga-project-3-back-end
 https://github.com/thejamesgore/ga-project-3-front-end
 
 ## Code Installation
+
+Clone or download the repo then in your Terminal run the following commands:
+
+- Install dependencies in the backend folder `yarn`
+- Start the database in the backend folder `yarn start`
+- Change into the frontend folder `cd frontend`
+- Install dependencies in the frontend folder `yarn`
+- Run the front end `yarn start:client`
 
 ---
 
@@ -84,22 +97,40 @@ https://github.com/thejamesgore/ga-project-3-front-end
 
 ---
 
-Brainstormed ideas settling in on one early on then further brainstormed features our project should have and the required models. We decided the first week should be dedicated to project planning and fleshing out the backend while the second week was focused on creating the frontend. We then used Figma to create a basic design.
+Key Dates:
+
+- Day 1-3 - Planning, Creating Basic Backend, Seed Data, User Models, & Controllers
+- Day 4-7 - Creating Middleware, Endpoints, Authorization, Secure Routes, & Testing Endpoints In Postman
+- Day 8-9 - Creating Basic Layout, Calling Endpoints Using Axios
+- Day 10-14 - Mapping User Data, Creating Members Dashboard, Adding 3rd Party APIs
+
+
+### Day 1-3:
+
+We decided the first week should be dedicated to project planning and fleshing out the backend while the second week should be focused on creating the frontend. Initially we brainstormed ideas settling in on creating a travel app early on and then further brainstormed features our project should have. We then used Figma to create a basic design displaying each page we would create and their subcomponents.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378251-4d6d1835-4c1e-4931-9450-c031b91d41fb.png 'Figma')
 
 
+We then set up a trello kanban board to enable agile working with a backlog of tasks ranked and assigned to each member of the team, most of which were all group tasks initially so we could hone in on the models we would need based on the project requirements, and have a base backend from which we could then work on separately.
 
-Set up trello kanban board for agile working with a backlog of tasks ranked and assigned to each member of the team.
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378181-f9230e4a-d742-49de-a22e-28c8f29f6206.png 'Trello Kanban Board')
 
 Assigned upcoming tasks that wouldn't conflict
 Initially focused on building the backend together, deciding the neccessary models
 
+### Day 4-7:
+
 Created endpoints
 
 I tested the endpoints in postman
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378515-e67aa3af-abc5-4705-aa3f-862739922330.png 'Postman')
+
+### Day 8-9:
+
+
+
+### Day 10-14:
 
 I created membersdashboard, pulls all countries user has visisted from the backend, sends the name of these countries to google Geocode which converts the country name to a longditude and latitude and returns it which is stored in state, this is then passed and converted to a format that works with React Map GL which renders the map on screen and allows drop pins.
 
