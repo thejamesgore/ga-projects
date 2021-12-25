@@ -53,7 +53,7 @@ Clone or download the repo then in your Terminal run the following commands:
 - Build a full-stack application by making your own backend and your own front-end
 - Use an Express API to serve your data from a Mongo database
 - Consume your API with a separate front-end built with React
-- Be a complete product which most likely means multiple relationships and CRUD functionality for at least a couple of models
+- Be a complete product which most likely means multiple relationships and some CRUD functionality for at least a couple of models
 
 ## Technologies Used
 
