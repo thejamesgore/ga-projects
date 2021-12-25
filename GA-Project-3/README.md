@@ -322,15 +322,17 @@ A bug we faced was when a user logs in upon first render of the page one or none
 
 ---
 
-Using maps, problem solving how to turn country names from a data base into map coordinates and images on the country cards
+Using maps, problem solving how to turn data from our database into map coordinates and images on the country cards was very enjoyable and just working with a map componenet in general was very exciting. It was certainly a stretch and extremely challenging especially as time was encroaching.
 
-One of the challenges was how we set up our backend initially with regards to models. We had to make a slight modification to be able to populate user data and also allow comments for each trip. This meant some of our data that we added to our database had missing data.
+One of the challenges was how we set up our backend initially with regards to models. We had to make a slight modification to be able to populate user data and also allow comments for each trip. This meant some of our data that we added to our database had missing aspects and that our initial seed database function was no longer operational as the models had changed. Starting with a fresh database this isn't a problem but if one wanted to retain the existing data this would be an issue however a simple work around would be to add on the front end either optional chaining so missing data does not get rendered yet the allow the page to render or alternatively simply state the user has not entered this data yet and allow edit functionality.
 
 ## Key Learnings
 
 ---
 
-Have a very clear idea of what precisely will be the funcitonality of the app so you can clearly define models from the outset so they don't need to be modified later during development, however I would assume as apps become more successful and grow models will need to be updated to accomodate future features.
+It's extremely important to have a very clear idea of what precisely will be the funcitonality of the app so you can clearly define models from the outset so they don't need to be modified later during development, however I would assume as apps become more successful or needs of the end user change models will need to be updated to accomodate future features.
+
+That the most obvious way to solve a problem might not be the best based on the timeframe and other members of your team working on the same part of a project e.g. both working on the backend one solving a bug and another adding a feature. Adding a feature may exaserbate the bug and create more issues. So perhaps there is another way to solve the problem which can be revisted once the bug is fixed but will still maintain the end user experience. How to manipulate, filter, map data to make it usable.
 
 Structuring the way one works with others is crucial to ensure efficient use of time. This means the obvious such as using agile working, strong initial planning, and assigning jobs to people based on interest and capacity or desire to work on a task. However, this also extends to how day to day coding works too such as scheduling time in a group as we all were working full time and also had responsibilities outside of the immersive that were time demanding but also small things such as having one person also run a working base version of the code from which everyone can live code and contribute to initially and pushing the groups work to git hub, until individuals are able to work on aspects that when merged wont intefere with the functionality of the existing code base.
 
