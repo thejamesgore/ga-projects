@@ -80,7 +80,6 @@ Clone or download the repo then do the following in Terminal:
 - BootstrapUI
 - React Router Dom
 - Hashrouter
-- React Router Bootstrap
 
 ### Development:
 
