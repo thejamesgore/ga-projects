@@ -100,24 +100,26 @@ Clone or download the repo then do the following in Terminal:
 
 Key Dates:
 
-- Week 1 - Backend focus
-- Week 2 - Frontend focus, hit MVP
+- Week 1 - Project Planning, Backend focus
+- Week 2 - Frontend focus
 - Week 3 - Further updates to backend & frontend to extend project and bug fix
 
-Part of the reason I decided to create an online shop was that React Redux would need to be used to manage the state of the cart. Whether a user is logged in or not the items in the cart should remain the same and React Redux would be a perfect too to for the job. Initial stages of the project were spent planning and fully understanding the neccessary demands to hit the MVP and how feasible this would be given the three week timeline I was given. As with all of my previous projects my goal was to stretch my capacities as I beleive this is the best way to learn as much as possible success or fail despite it being much more demanding not just mentally or physically but also on ones time. Once I did some further research into the required technologies that would enable me to hit the project MVP I began planning first thinking about the backend and neccessary models that would be required to have a complete working store. I used DrawSQL to plan out the different SQL tables and the relationships between each.
+Part of the reason I decided to create an online shop was that React Redux would need to be used to manage the state of the cart and this would give me an opportunity to learn to use React Redux. The items in the cart should remain the same whether a user is logged in or not and React Redux would be a perfect too to for the job.
+
+Initial stages of the project were spent planning and fully understanding the neccessary demands to hit the MVP and how feasible this would be given the three week timeline I was given. As with all of my previous projects my goal was to stretch my capacities as I beleive this is the best way to learn as much as possible, success or fail, despite it being significantly more demanding not just mentally or physically but also on ones time.
+
+Upon further research into the required technologies that would enable me to hit the project MVP I began planning by first thinking about the backend and neccessary models that would be required to have a complete working store. I used DrawSQL to plan out the different SQL tables and the relationships between each.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147387036-61c1e632-27d0-4436-a0a9-ed1a37140951.png 'DrawSQL models')
 
-From this point I created a general mock up of the various pages that would be requred on the frontend in figma and created a trello board with each task neccessary to create the backend and frontend that I could think of at the time and add some basic checklists to each note updating as I went along. This was crucial to keep me organized, project progress, and see how far away I was from hitting the mvp.
+From this point I created a general mock up of the various pages that would be requred on the frontend in figma. I made a decision early on to use a CSS framework to make the styling of the project uniform but more importantly to help save project time to allow for troubleshooting or any bugs that would come further down the line when building out the frontend because of the unknown of how successful I would be implementing a new technology, React Redux, that I had not been taught or used before.
 
-![Alt text](https://user-images.githubusercontent.com/83005220/147387036-61c1e632-27d0-4436-a0a9-ed1a37140951.png 'DrawSQL models')
+![Alt text](https://user-images.githubusercontent.com/83005220/147387018-fb9513c5-1e48-41d5-8214-6cf7c88a4725.png 'Figma Project Design')
 
-Planning
-Trello
-DrawSQL
-Figma
+I also created a trello kanban board with each task neccessary to create the backend and frontend that I could think of at the time and added some basic checklists to each task to have big tasks split into small measurable goals updating as I went along. This was crucial to stay organized, measure project progress, and see how far away I was from the mvp.
 
-First Week planning, backend
+![Alt text](https://user-images.githubusercontent.com/83005220/147387020-25505a6d-5452-4aa3-a40e-b43960ccae7f.png 'Trello Kanban Board')
+
 Second Week frontend & more of backend
 Third Week frontend
 
