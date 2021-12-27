@@ -65,9 +65,9 @@ Clone or download the repo then do the following in Terminal:
 - Django
 - Django REST Framework
 - Python Imaging Library
-- Psycopg2
-- Simple JWT
 - Django CORS Headers
+- Simple JWT
+- Psycopg2
 
 ### Frontend:
 
@@ -100,9 +100,9 @@ Clone or download the repo then do the following in Terminal:
 
 Key Dates:
 
-- Week 1 - Project Planning, Backend focus
-- Week 2 - Frontend focus
-- Week 3 - Further updates to backend & frontend to extend project and bug fix
+- Week 1 - Project Planning, Backend Focus
+- Week 2 - Backend, Frontend, Bug Fixing
+- Week 3 - Frontend Focus
 
 ### Week 1:
 
@@ -126,12 +126,58 @@ With a strong plan, timeline and vision in mind I began on the backend initializ
 
 I then added Django CORS Headers as with previous projects in the past during the development process the API will by default not serve data from another domain outside the domain from which the resource was first served. This will make testing endpoints in Postman and eventually calling endpoints with Axios in the frontend smoother.
 
-Next I used the DrawSQL tables to help create the models for the API in models.py thinking about the neccessary data types for each field. During this time I realised I would need to find a solution to allow the site admin to upload product images as the product model would require an image field. With some research I discovered Python Imaging Library also known as Pillow as a solution which would allow static files in an Image folder so installed and configued as required and added updated the image field in the product model.
+Next I used the DrawSQL tables to help create the models for the API in models.py thinking about the neccessary data types for each field. During this time I realised I would need to find a solution to allow the site admin to upload product images as the product model would require an image field. With some research I discovered Python Imaging Library also known as Pillow as a solution which would allow static files in an Image folder so installed and configued as required and added updated the image field in the product model. I created a test product via the Admin Panel to ensure this was working correctly and images were being stored successfully in the images folder.
+
+As I was working with Django Rest Framework all data needs to be JSON Serializable or it will not be successfully served by the API so I proceeded to serialize all models in a serializers.py and then updated the views.py file as neccessary.
+
+```python
+# Will return all products
+@api_view(['GET'])
+def getProducts(request):
+    products = Product.objects.all()
+    serializer = ProductSerializer(products, many=True)
+    return Response(serializer.data)
+```
 
 ### Week 2:
 
-Second Week frontend & more of backend
-Third Week frontend
+After adding some dummy data I began testing the API using Postman and via the Django Rest Framework UI in browser to ensure data was being served successfully which it was so the next task was to implement token authorization. Similarly to previous projects JSON Web Tokens are the method by which authorization would be possible so I installed Simple JWT and began to update the serializers.py and views.py creating a `POST` request functionality to register users but also permissioned classes from Django Rest Framework to require authentication to access aspects of the API such as a `GET` request for user data.
+
+```python
+# Will return user data
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getUserProfile(request):
+    user = request.user
+    serializer = UserSerializer(user, many=False)
+    return Response(serializer.data)
+```
+
+I then tested all aspects of authorization in Postman and using the Admin panel by first creating a new user, ensuring I could login with this user creating a bearer token, and then see if I could use the bearer token to access restricted aspects of the API that should only be available to said user. I also tested these endpoints without a token to ensure they are restricted too with success. This was a rather large milestone and quite an endeavour to reach this point as developing the backend was challenging as I had yet to code a project in Python or Django to this depth previously and required a great deal of troubleshooting, trial and error, and research.
+
+![Alt text](https://user-images.githubusercontent.com/83005220/147442271-03eb76cf-b33f-4d23-aaf8-cb856ebb666b.png 'Postman')
+
+Now with the majority of the neccessary development of the backend completed I shifted my focus to creating the frondend. Following the designs in Figma I created the basic site architecture with a landing page, product page, register page, and login page.As I had experience with a multitude of CSS Frameworks such as Bulma, Tailwind CSS, Bootstrap UI, I decided to use Bootstrap as I had some but little experience with Bootstrap and this would allow me to explore it's features to a greater degree. Bootstrap also had a Carousel element built in which would be perfect for the landing page. The initial goal was to successfully fetch data from the API using axios and to have this render on the landing page.
+
+```Javascript
+const [products, setProducts] = useState([])
+
+useEffect(()=>{
+
+    async function getAllProducts() {
+
+    const { data } = await axios.get('http://127.0.0.1:8000/api/products')
+    setProducts(data)
+
+    }
+
+getAllProducts()
+},[])
+```
+
+Now API data was being sucessfully rendered on the landing page I moved onto the prodct page again following the figma designs. I added some details I had no considered during the initial design phase such as displaying whether or not a product was in stock, limited the quantity one would be able to add to their cart based on the number of items in stock, and conditional rendering of the Add To Cart button no longer making it a clickable if there were no more of the item in stock.
+
+### Week 3:
 
 ## Featured Code
 
@@ -152,3 +198,7 @@ Third Week frontend
 ## Future Content and Improvements
 
 ---
+
+```
+
+```
