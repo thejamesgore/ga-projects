@@ -1,4 +1,4 @@
-# GA Project Four - TravelApp - Python Based Django Backend & React Front End
+# GA Project Four - Web Store - Python Based Django Backend & React Front End
 
 Table of Contents:
 
