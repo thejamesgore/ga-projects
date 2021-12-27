@@ -27,7 +27,7 @@ We were given three weeks to complete and present our project.
 
 Live Version:
 
-Original Repositories With Full Commit Histories
+Original Repository With Full Commit History
 https://github.com/thejamesgore/ga-project-4
 
 ## Code Installation
