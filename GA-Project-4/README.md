@@ -79,6 +79,7 @@ Clone or download the repo then do the following in Terminal:
 - Axios
 - BootstrapUI
 - React Router Dom
+- Hashrouter
 - React Router Bootstrap
 
 ### Development:
@@ -127,6 +128,8 @@ With a strong plan, timeline and vision in mind I began on the backend initializ
 I then added Django CORS Headers as with previous projects in the past during the development process the API will by default not serve data from another domain outside the domain from which the resource was first served. This will make testing endpoints in Postman and eventually calling endpoints with Axios in the frontend smoother.
 
 Next I used the DrawSQL tables to help create the models for the API in models.py thinking about the neccessary data types for each field. During this time I realised I would need to find a solution to allow the site admin to upload product images as the product model would require an image field. With some research I discovered Python Imaging Library also known as Pillow as a solution which would allow static files in an Image folder so installed and configued as required and added updated the image field in the product model. I created a test product via the Admin Panel to ensure this was working correctly and images were being stored successfully in the images folder.
+
+![Alt text](https://user-images.githubusercontent.com/83005220/147385178-800bb41b-241e-44fa-98ae-7d3e48e211d0.png 'Admin Panel')
 
 As I was working with Django Rest Framework all data needs to be JSON Serializable or it will not be successfully served by the API so I proceeded to serialize all models in a serializers.py and then updated the views.py file as neccessary.
 
@@ -177,7 +180,23 @@ getAllProducts()
 
 Now API data was being sucessfully rendered on the landing page I moved onto the prodct page again following the figma designs. I added some details I had no considered during the initial design phase such as displaying whether or not a product was in stock, limited the quantity one would be able to add to their cart based on the number of items in stock, and conditional rendering of the Add To Cart button no longer making it a clickable if there were no more of the item in stock.
 
+The next step was to start using React Redux for global state management and to expand on the functionality of the product page and shopping cart. Starting by creating the store and wrapping the entire app in a provider componenet pointing to the Redux store I shifted to creating basic reducers and moving the Axios API call into actions. Two tools that made this exceptionally easier to manage were Redux Thunk, which allowed for asynchronous actions, and Redux Dev Tool extension which allows one to see not only what is presently in the state but also a timeline of changes that happen which can be replayed. A great deal of debugging and learning was neccessary during this aspect of development to have Redux functioning correctly and meant more time was spent on this than anything else as was expected when initially planning. However, once I was able to go through creating multiple actions, reducers, and the relative items in the store implementing further features throughout this project followed much of the same process and was not time intensive compared to the rest of the project.
+
+![Alt text](https://user-images.githubusercontent.com/83005220/147452164-c2ea3fe0-2f0e-47a0-ae78-b9a8e7ebff96.png 'Redux DevTool')
+
 ### Week 3:
+
+The final focus of this week was to hit the MVP as soon as possible, which would require creating a complete checkout process with the user being able to submit their order successfully and order information populating on the backend or admin panel once submitted, and further improvements to layout to move the site more inline with the figma designs. Checkout followed a sequential process of creating the neccessary forms to capture the relevant user information based on the current step, pass that into the global state, and then move onto to the next step of the checkout ultimately finishing with order confirmation summarizing all information in the global state.
+
+![](https://user-images.githubusercontent.com/83005220/147457778-b516cfab-c2bd-4d2e-8f13-6f89a97d529a.png 'Checkout')
+
+One consideration during this process was data protection for the end user and how data would be stored. In this project the payment details of each customer is stored in the Payment Method field shown in the screenshot below. This would make sense for manual processing of payments however most online stores use a 3rd part processor such as Stripe, PayPal, GooglePay, or similar and the order confirmation page would be the perfect place to integrate such payment processors. However, for the scope of this project it was more important to be able to ensure this data could be successfully captured and posted to the API as a proof of concept. Checking the order in the Admin panel we can see payment information was successfully captured under PaymentMethod in the screenshot below thus hitting project MVP.
+
+![](https://user-images.githubusercontent.com/83005220/147458054-d9efd3cb-31ea-4587-a6a1-23cbd0920972.png 'Order Page')
+
+As I already had experience developing frontend environments in React from prior projects the rest of the development process was rather smooth unlike some earlier instances which required significant time dedicated to problem solving issues for both Django and React Redux. I continued to work on the presentation of the site and user experience creating a carousel. I had to create a new endpoint in Django to only serve the top products based on their 5 star rating, which when called in Axios was mapped over the carousel componenet.
+
+I also encountered some bugs during this time especially when it came to deployment requiring changes to some key elements such as React Router Dom which is further elaborated on in the bug section.
 
 ## Featured Code
 
@@ -186,6 +205,8 @@ Now API data was being sucessfully rendered on the landing page I moved onto the
 ## Bugs
 
 ---
+
+Need to implement Hashrouter
 
 ## Wins and Challenges
 
