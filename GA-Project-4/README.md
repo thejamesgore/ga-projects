@@ -201,24 +201,136 @@ I also encountered some bugs during this time especially when it came to deploym
 
 ---
 
+Below are some key excerpts of code which allow items to be added to cart and the global state when navigating from a page featuring a product to the cart.
+
+First we populate the product data on the page with a `useEffect()` which dispatches an action `listProductDetails(match.params.id)` to Redux. This action passes in the current product id which is in the browser url hence the `match.params.id`.
+
+```javascript
+function ProductPage({ match, history }) {
+  const [qty, setQty] = useState(1)
+  const dispatch = useDispatch()
+  const productDetails = useSelector((state) => state.productDetails)
+
+  useEffect(() => {
+    dispatch(listProductDetails(match.params.id))
+  }, [dispatch, match])
+```
+
+In our Redux actions `ListProductDetails` is called which triggers an Axios get request to our Django API. Upon success the response from the API is passed to the reducer which changes the current state in our store of `productDetails`.
+
+```Javascript
+export const listProductDetails = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: PRODUCT_DETAILS_REQUEST })
+    const { data } = await axios.get(`/api/products/${id}`)
+
+    dispatch({
+      type: PRODUCT_DETAILS_SUCCESS,
+      payload: data,
+    })
+  }
+}
+```
+
+Now the `productDetails` variable has the current product data from the API as it is assigned to this data via the `useSelector()`
+
+```javascript
+const productDetails = useSelector((state) => state.productDetails)
+```
+
+Now the user can see the relevant data for this product and can click Add To Cart which when they do calls the addToCart function pushing them to the cart page which includes the product id from `match.params.id` but also the item quantity which was set into local state.
+
+```Javascript
+const addToCart = () => {
+  history.push(`/cart/${match.params.id}?qty=${qty}`)
+}
+```
+
+On the Cart screen a very similar process happens upon initial render of the page. Upon first render a `useEffect()` dispatches the `addToCart()` action to redux which is passed the product id and item quantity via two variables pulling this data from the URL.
+
+```Javascript
+  const productId = match.params.id
+  const qty = location.search ? Number(location.search.split('=')[1]) : 1
+```
+
+```Javascript
+  useEffect(() => {
+    if (productId) {
+      dispatch(addToCart(productId, qty))
+    }
+  }, [dispatch, productId, qty])
+```
+
+In our Redux actions `addToCart` is called with the product id and quanitity passed into the function and does another Axios api call for the current product id. However slightly differently this time product data is sent to the reducer to change the current state in the local store but also adds the item to the local storage in the browser. This is useful as if a user closes their browser but returns to the page all items that were added to the cart will still be visible thanks to local storage.
+
+```Javascript
+export const addToCart = (id, qty) => async (dispatch, getState) => {
+  const { data } = await axios.get(`/api/products/${id}`)
+
+  dispatch({
+    type: CART_ADD_ITEM,
+    payload: {
+      product: data._id,
+      name: data.name,
+      image: data.image,
+      price: data.price,
+      countInStock: data.countInStock,
+      qty,
+    },
+  })
+
+  localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
+}
+
+```
+
+Lastly this item is visible in the cart as the current cart is pulled from the state with a `useSelector()` function and rendered on the page.
+
+```Javascript
+  const cart = useSelector((state) => state.cart)
+```
+
+Although there are many steps to this process the benefits of this approach is there is no need to pass state up and down componenets which can become troublesome for a project of this size, regardless of whether the user is logged in or not the cart items will remain the same, and user experience isn't impeded.
+
 ## Bugs
 
 ---
 
-Need to implement Hashrouter
+When deployed the app wouldn't route properly when the user refreshed the page or navigated away and back to the same page. This was due to how the routing system works with React Router Dom & the configuration of Django Rest Frame Work. As this was after a great deal of development on the backend I didn't wish to change anything too significantly with the API to solve this problem as it could create 2nd and 3rd order of effect bugs that I may not have been aware of so instead implemented a different type of routing using Hash Router at this late stage which solved the problem after some research on Stack Overflow.
+
+Ultimately Django was recognizing any page refresh or navigation back to some pages as a request for a hard coded url or server side routing, where many of the urls did not exist, so is unable to serve any data.
+
+Hash Router solves this problem by adding a `#` in the url enabling server side routing to be independent from client side routing in React by having all urls created in React following the `#` and being ignored by the backend.
 
 ## Wins and Challenges
 
 ---
 
+This was a successful yet extremely challenging project especially as it was solo. The biggest win was of course achieving my goal of successfully implementing React Redux however, this was also the largest project I had completed to date and introduced a new language, Python, that I had not used to this significance before.
+
+The greatest challange was the learning curve using Python, familiarising myself with Django fully and it's capabilities and limitations, and the learning curve using React Redux.
+
+A second challenge was working alone. Although it does have the benefit of meaning a I'm able learn the most I do enjoy working in a team even if working completely independently on a specific feature.
+
 ## Key Learnings
 
 ---
+
+My primary goal with this project was to successfully learn to implement React Redux for global state management which I was able to do successfully. I also successfully allocated extra time to problem solve one major issue on the backend and one major issue on the frontend which was a fantastic approach as despite this being the longest project time I had so far, expecting to face unknown issues and allowing extra time purely for bug fixing or extra development for potential issues was vital to maintaining the project project timeline I had initially set. However, even so I was unable to achieve my full vision for the project due to time constraints as ultimately there is only so much one can do.
+
+I would love to have similar responsibilities and goals implementing many key features I did in this project such as Redux although in a team based environment as collaboration is also a fantastic way to learn, see different perspectives and ways to problem solve, and ofcourse develop oneself which was one aspect I really missed when working on this project solo.
+
+This was the first time approaching development slightly differently compared to previous projects with regards to version contorl. Unlike my last group project where we used individual development branches named after ourselves, e.g. development-james, for this project I used branches named after features to better approximate a working environment as a colleague working working on the navigation bar would find it easier to pick up where someone else left off on a branch named development-navbar. Feature based branches meant working on different aspects of the project and switching from branch to branch also allowed me to continue where I left off from previous days much easier and insulate work if I need to make small modifications to other aspects of the project.
+
+Although one can plan to quite a significant extent initially, until the development process begins one will never truly know all tasks required to achieve each goal nor the time they will take. Some may have a percieved expectation of taking a considerable time yet will be quite easy to create and others may seem simple but create further challenges or bugs one may not expect.
 
 ## Future Content and Improvements
 
 ---
 
-```
-
-```
+- Users being able to submit reviews for products
+- Users being limited to only submit a review for a product if there is history of the user order the product
+- A custom dashboard for site managers separate from the Django Admin Panel so if someone were to work for the company they could see order details and fulfil orders but wouldn't be able to have access to similar features that a superuser would.
+- I half created the user profile so users could update shipping information, however I would also like it to show previous orders
+- A sub navbar with categories and drop down menus providing access to different products which a user could easily find and click from any page
+- Search functionality
