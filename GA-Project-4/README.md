@@ -17,9 +17,9 @@ Table of Contents:
 
 ---
 
-An online health shop selling supplements, food, exercise equipment, and more. This was created using a python django based backend and a React frontend.
+An online health shop selling supplements, food, exercise equipment, and more. This was created using a python Django based backend and a React frontend.
 
-Although there was an opportunity to work in a group I decided to work alone on this project as there was a longer development timeline to push my capabilities, learning, and attempt to successfully use React Redux in what would be quite a challenging project.
+Although there was an opportunity to work in a group I decided to work alone on this project as there was a longer development timeline avaialable compared to previous projects to push my capabilities, learning, and attempt to successfully use React Redux in what would be quite a challenging project.
 
 We were given three weeks to complete and present our project.
 
