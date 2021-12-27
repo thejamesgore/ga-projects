@@ -65,9 +65,9 @@ Clone or download the repo then do the following in Terminal:
 - Django
 - Django REST Framework
 - Python Imaging Library
-- Psycopg2
-- Simple JWT
 - Django CORS Headers
+- Simple JWT
+- Psycopg2
 
 ### Frontend:
 
@@ -127,6 +127,33 @@ With a strong plan, timeline and vision in mind I began on the backend initializ
 I then added Django CORS Headers as with previous projects in the past during the development process the API will by default not serve data from another domain outside the domain from which the resource was first served. This will make testing endpoints in Postman and eventually calling endpoints with Axios in the frontend smoother.
 
 Next I used the DrawSQL tables to help create the models for the API in models.py thinking about the neccessary data types for each field. During this time I realised I would need to find a solution to allow the site admin to upload product images as the product model would require an image field. With some research I discovered Python Imaging Library also known as Pillow as a solution which would allow static files in an Image folder so installed and configued as required and added updated the image field in the product model.
+
+As I was working with Django Rest Framework all data needs to be JSON Serializable or it will not be successfully served by the API so I proceeded to serialize all models in a serializers.py and then updated the views.py file as neccessary.
+
+```python
+# Will return all products
+@api_view(['GET'])
+def getProducts(request):
+    products = Product.objects.all()
+    serializer = ProductSerializer(products, many=True)
+    return Response(serializer.data)
+```
+
+After adding some dummy data I began testing the API using Postman and via the Django Rest Framework UI in browser to ensure data was being served successfully which it was so the next task was to implement token authorization. Similarly to previous projects JSON Web Tokens are the method by which authorization would be possible so I installed Simple JWT and began to update the serializers.py and views.py creating a `POST` request functionality to register users but also permissioned classes from Django Rest Framework to require authentication to access aspects of the API such as a `GET` request for user data.
+
+```python
+# Will return user data
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getUserProfile(request):
+    user = request.user
+    serializer = UserSerializer(user, many=False)
+    return Response(serializer.data)
+```
+
+I then tested all aspects of authorization in Postman and using the Admin panel by first creating a new user, ensuring I could login with this user creating a bearer token, and then see if I could use the bearer token to access restricted aspects of the API that should only be available to said user. I also tested these endpoints without a token to ensure they are restricted too with success.
+
+![Alt text](https://user-images.githubusercontent.com/83005220/147442271-03eb76cf-b33f-4d23-aaf8-cb856ebb666b.png 'Trello Kanban Board')
 
 ### Week 2:
 
