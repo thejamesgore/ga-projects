@@ -17,15 +17,15 @@ Table of Contents:
 
 ---
 
-A podcast feed using the Spotify API that allows the user to easily see all the podcasts they're subscribed to and the latest episodes for those shows. At the time of development this feature was extremely difficult to find in the Spotify desktop app which we were both avid users of and enjoy listening to podcasts.
+A podcast feed using the Spotify API that allows the user to easily see all the podcasts they're presently subscribed to and the latest episodes for those shows. At the time of development this feature was extremely difficult to find in the Spotify desktop app which we were both avid users of and enjoy using to listen to podcasts.
 
-This was a collaborative two person project with a 7 day timeframe to complete and present our work and my first project working with someone else.
+This was a collaborative two person project with a 7 day timeframe to complete and present our work.
 
-Live Version:https://thejamesgore-project2.herokuapp.com/
-
-Please use the following credentials to login:
+Please use the following credentials to login to the live version:
 - username: 	login@testlogin.com
 - password:   thejamesgore
+
+Live Version: https://thejamesgore-project2.herokuapp.com/
 
 Original Repository With Full Commit History: https://github.com/thejamesgore/spotify-podcast-app
 
