@@ -29,7 +29,7 @@ Live Version: https://thejamesgore-project2.herokuapp.com/
 
 Original Repository With Full Commit History: https://github.com/thejamesgore/spotify-podcast-app
 
-![Alt text](https://user-images.githubusercontent.com/64632596/132090747-48032083-ebb0-4fd9-8d19-d89dc6b0c445.png 'Podcast page')
+![Alt text](https://user-images.githubusercontent.com/83005220/147563185-f805bcb3-1541-4b29-877f-55388d9d0d5c.png 'Podcast page')
 
 ## Code Installation
 
