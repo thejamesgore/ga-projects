@@ -23,6 +23,10 @@ This was a collaborative two person project with a 7 day timeframe to complete a
 
 Live Version:https://thejamesgore-project2.herokuapp.com/
 
+Please use the following credentials to login:
+- username: 	login@testlogin.com
+- password:   thejamesgore
+
 Original Repository With Full Commit History: https://github.com/thejamesgore/spotify-podcast-app
 
 ![Alt text](https://user-images.githubusercontent.com/64632596/132090747-48032083-ebb0-4fd9-8d19-d89dc6b0c445.png 'Podcast page')
