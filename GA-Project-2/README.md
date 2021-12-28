@@ -77,6 +77,7 @@ To run and use the app you will need to do the following:
 
 - Visual Studio Code
 - Yarn
+- Nodemon
 - Postman
 - Git
 - Github
