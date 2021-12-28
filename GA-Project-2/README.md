@@ -21,7 +21,8 @@ A podcast feed using the Spotify API that allows the user to easily see all the 
 
 This was a collaborative two person project with a 7 day timeframe to complete and present our work and my first project working with someone else.
 
-Live Version:
+Live Version:https://thejamesgore-project2.herokuapp.com/
+
 Original Repository With Full Commit History: https://github.com/thejamesgore/spotify-podcast-app
 
 ![Alt text](https://user-images.githubusercontent.com/64632596/132090747-48032083-ebb0-4fd9-8d19-d89dc6b0c445.png 'Podcast page')
