@@ -89,6 +89,7 @@ Clone or download the repo then in your Terminal run the following commands:
 - Visual Studio Code
 - Yarn
 - Webpack Dev Server
+- Nodemon
 - Postman
 - Git
 - Github
