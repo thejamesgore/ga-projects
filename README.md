@@ -6,6 +6,6 @@ GA Project 1 - JavaScript Game
 
 GA Project 2 - React Front End Utilizing An External API
 
-GA Project 3 - MERN Full Stack Application - MongoDB, Express, React, Node.js
+GA Project 3 - MERN Full Stack App - MongoDB, Express, React, Node.js
 
-GA Project 4 - Python Based Django Backend & React Front End
+GA Project 4 - Django Backend & React Frontend Fullstack App Using Redux
