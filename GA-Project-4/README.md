@@ -68,6 +68,7 @@ Clone or download the repo then do the following in Terminal:
 - Django CORS Headers
 - Simple JWT
 - Psycopg2
+- Django Cloudinary Storage
 
 ### Frontend:
 
