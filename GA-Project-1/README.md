@@ -180,4 +180,4 @@ Finally you can also see the function that tests for hit detection utilizing a f
 
 ## Key learnings
 
-I've learned from this project that it's important to allow for time to refactor code as it's development progresses and the importance of writing clean code that makes semantic sense.
+I've learned from this project that it's important to allow for time to refactor code as its development progresses and the importance of writing clean code that makes semantic sense.
