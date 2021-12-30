@@ -60,7 +60,7 @@ Key Dates:
 
 ### Day 1:
 
-I spent the first day brainstorming any ideas for a game being drawn to what would take my interest the most which game down to two options. I settled on a space shooter canvas based game as although it seemed it would be extremely challenging with quite a few problems to solve it would likely be much more of a stretch goal it would allow me to learn the most and push my development.
+I spent the first day brainstorming ideas and looking for interesting elements to make it an enjoyable game. I settled on a space shooter canvas based game which was challenging and posed quite a few problems to solve. This approach made the project much more of a stretch goal to allow me to learn the most and push my development.
 
 I broke down the project into a reasonable timeline with a plan with manageable chunks. I created a list of features that the game must have in order to satisfy the brief but also be an enjoyable game to play at the bare mininum thus creating the MVP. I then listed additional features that would be nice to have and sorted them based on how much they would enhance the game.
 
