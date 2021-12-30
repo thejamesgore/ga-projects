@@ -18,7 +18,7 @@ Table of Contents:
 
 Space shooter is a sidescrolling shooting game inspired by the classic arcade games R-Type and Gradius. The objective is to reach the end of the game without taking any damage while trying to achieve the highest score by shooting enemy ships.
 
-This was the my first project from General Assembly's Software Engineering Immersive course. It was an individual project built in 7 days, and my first real-world practice with JavaScript beyond solving small simple puzzles.
+This was the my first project from General Assembly's Software Engineering Immersive course. It was an individual project built in 7 days using vanilla JavaScript.
 
 Live version:
 https://thejamesgore.github.io/ga-projects/GA-Project-1/index.html
