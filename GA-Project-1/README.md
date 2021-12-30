@@ -76,7 +76,9 @@ For the MVP I decided that the player must be able:
 
 To ensure dry code all interactive onscreen elements (such as player ship, enemy ships, and projectiles) had their own class and were added or removed from an array for their class if they were spawned or destroyed.
 
-By day 3 the player ship would spawn, move on screen and fire projectiles at enemies that would spawn from the right side of the screen and move to the left. The next challenge was hit detection when enemies hit the player ship or when projectiles hit enemies. This was performed by understanding the dimensions of objects on screen and having a game event trigger when these dimensions on the canvas crossed. As well as this creating different enemy movements on screen based on enemy type and wave was implemented some of which utilizing some simple math to enable paths similar to a Sine wave or ever expanding circle.
+By day 3 basic aspects of the game were functional and a design concept to enhance realism was achieved by altering the ship sprite based on keystroke to give the illusion of travel.
+
+The next challenge was hit detection. This was performed by understanding the x and y coordinates of objects on screen and having a game event trigger when these dimensions on the canvas intersected. As well as this, creating different enemy paths on the screen based on enemy type and wave was implemented by utilizing some simple math to enable paths similar to a Sine wave or an ever expanding circle.
 
 ### Day 5-6:
 
