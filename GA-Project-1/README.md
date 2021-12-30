@@ -66,9 +66,15 @@ I segmented the project into an attainable timeline organised into manageable mi
 
 ### Day 2-4:
 
-For the MVP I decided that the player must be able to control the ship in all directions, fire at enemies, have the projectiles destroy enemies on screen, have the score increase each time this happens, have a game over screen appear when the ship crashes into an enemy, and have enemies spawn from right to left.
+For the MVP I decided that the player must be able:
+- to control the ship in all directions
+- fire at enemies 
+- have projectiles destroy enemies on screen
+- have the score increase each time this happens
+- have a game over screen appear when the ship crashes into an enemy
+- have enemies spawn from right to left
 
-To ensure dry code avoiding uneccessary reptition all objects in the game that could interact with each other such as player ship, enemy ships, and projectiles had their own class and were either added or removed from an array specifically for that object type based on game conditions like an enemy spawning or being destroyed.
+To ensure dry code all interactive onscreen elements (such as player ship, enemy ships, and projectiles) had their own class and were added or removed from an array for their class if they were spawned or destroyed.
 
 By day 3 the player ship would spawn, move on screen and fire projectiles at enemies that would spawn from the right side of the screen and move to the left. The next challenge was hit detection when enemies hit the player ship or when projectiles hit enemies. This was performed by understanding the dimensions of objects on screen and having a game event trigger when these dimensions on the canvas crossed. As well as this creating different enemy movements on screen based on enemy type and wave was implemented some of which utilizing some simple math to enable paths similar to a Sine wave or ever expanding circle.
 
