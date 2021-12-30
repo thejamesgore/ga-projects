@@ -90,11 +90,11 @@ The one consideration I had overlooked was scaling difficulty for the user based
 
 ### Day 7:
 
-The last day was spent creating an end game for the player spawning a boss type enemy that wouldn't explode immediately when hit by a projectile. This required a life variable for the final enemy, increasing difficulty as the life variable decreased further and further, logic for the behaviour of the final enemy based on the movement of the player, and an end game screen.
+The last day was spent creating an end game for the player spawning a boss type enemy that wouldn't explode immediately when hit by a projectile. This required a life variable for the final enemy, increasing difficulty as the life variable decreased further, and further logic for the behaviour of the final enemy based on the movement of the player.
 
 ![](https://user-images.githubusercontent.com/83005220/147377477-a8f343af-6a4a-4bb9-81ca-5b1b56cd2654.gif)
 
-The idea was to track the movement of the boss enemy to the movement of the player so if the player moves upward or downward the boss would also move upward or downward. The boss enemy also fires projectiles at the player ship with increasing frequency and randomness as life is reduced past certain thresholds increasing difficulty.
+The idea was to track the movement of the boss enemy to the movement of the player so if the player moves upward or downward the boss would also move upward or downward. The boss enemy also fires projectiles at the player ship with an increasing frequency and randomness as life is reduced past certain thresholds, thereby increasing difficulty.
 
 
 
