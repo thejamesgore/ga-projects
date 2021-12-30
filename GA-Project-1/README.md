@@ -102,7 +102,9 @@ The idea was to track the movement of the boss enemy to the movement of the play
 
 ---
 
-Below you can see the logic that progressively makes the end game more difficult by increasing firing frequency as boss.health decreases past certain thresholds. You can also see that the boss.y position of the boss varies depending where the ship.y position is however with some modifications to ensure it stays on screen. Finally you can also see the function that tests for hit detection of the boss by player missles utilizing a forEach function which also has included an increase to the player score, reduction in boss.health, and a final animation where the boss will drift downwards offscreen when it is defeated.
+Below you can see the logic that progressively makes the end game more difficult by increasing firing frequency as `boss.health` decreases past certain thresholds. You can also see that the `boss.y` position varies depending where the `ship.y` position is, however with some modifications to ensure it stays on screen. 
+
+Finally you can also see the function that tests for hit detection utilizing a forEach function which also increases the player score, reduction in `boss.health`, and a final animation where the boss will drift downwards offscreen when it is defeated.
 
 ``` JavaScript
 // Boss firing frequency based on current frame & how much health the boss has left
@@ -156,11 +158,9 @@ Below you can see the logic that progressively makes the end game more difficult
 
 ---
 
-- Currently hit detection is not ideal as the image sprites are not perfect quadrilaterals so occasionally depending on where the enemy and projectile is in space will mean the enemy will explode when infact on screen hasn't yet collided with anything just yet. To compensate for this hit detection was modified to be slightly more liberal.
+- Currently hit detection is not ideal as the sprites are not perfect quadrilaterals so don't map perfectly to their dimensions on the canvas. This results with  an occassional collision taking place too late but adds to the drama of the game. To compensate for this hit detection was modified to be slightly more liberal.
 
-- When rapidly firing projectiles subsequent projectiles would pass through enemies if one had drifted off screen. This was due to positioning in the missiles array being sequential but also being removed sequentially so if a missile drifted off screen and a new missile collided with an enemy the missile that drifted off screen would be removed rather the one that collided. A simple solution was to remove any missle from the missle array that drifted off screen.
-
-- Firing projectiles immediately when the game starts launches them in front of the planet that the player ship spawns behind. This is a layering issue and was only discovered once presenting the game on day 7 and is relatively simple to solve.
+- If a player rapidly fired and a projectile drifted off screen, subsequent projectiles would pass through enemies. This was due to positioning in the missiles array being sequential and being removed from the array in the order they were added. So if a missile drifted off screen and a new missile collided with an enemy, the missile that drifted off screen would be removed rather the one that collided. A simple solution was to remove any missle from the missle array that drifted off screen.
 
 ## Wins & Challenges
 
