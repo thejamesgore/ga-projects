@@ -166,9 +166,9 @@ Finally you can also see the function that tests for hit detection utilizing a f
 
 ---
 
-- The biggest challenges were understanding how to solve hit detection and still is yet to be solved perfectly without creating extremely reptitious code with custom hit detection based on the demensions of each type of enemy sprite.
+- The biggest challenges were understanding how to solve hit detection without creating extremely reptitious code.
 
-- A big win was not only successfully completing the project but overdelivering having a completely functional game with fun ending, pushing my understanding of JavaScript to the limit with many hours of not knowing how to solve multiple problems but find a successful approach, forcing me out of my comfort zone, and producing work I can be proud of.
+- A big win was not only successfully completing the project but overdelivering, having a completely functional game with a fun ending, pushing my understanding of JavaScript to the limit to find successful approaches, forcing me out of my comfort zone, and producing work I can be proud of.
 
 ## Future Content & Improvements:
 
@@ -180,4 +180,4 @@ Finally you can also see the function that tests for hit detection utilizing a f
 
 ## Key learnings
 
-I've learned from this project that I need to allow time in the project to refactor code as the project progresses. At the time I aimed to write understandable, clean code that made semantic sense, however there are sections in this project where I didn't have time to refactor at all prioritising working code ready for presentation
+I've learned from this project that it's important to allow for time to refactor code as it's development progresses and the importance of writing clean code that makes semantic sense.
