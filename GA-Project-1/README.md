@@ -76,19 +76,21 @@ For the MVP I decided that the player must be able:
 
 To ensure dry code all interactive onscreen elements (such as player ship, enemy ships, and projectiles) had their own class and were added or removed from an array for their class if they were spawned or destroyed.
 
-By day 3 basic aspects of the game were functional and a design concept to enhance realism was achieved by altering the ship sprite based on keystroke to give the illusion of travel.
+By day 3 some initial aspects of the game were functional and a design concept to enhance realism was achieved by altering the ship sprite based on keystroke to give the illusion of travel.
 
 The next challenge was hit detection. This was performed by understanding the x and y coordinates of objects on screen and having a game event trigger when these dimensions on the canvas intersected. As well as this, creating different enemy paths on the screen based on enemy type and wave was implemented by utilizing some simple math to enable paths similar to a Sine wave or an ever expanding circle.
 
 ### Day 5-6:
 
-By this point a basic game had been created with a score feature, game over screen, ability to restart, and multiple basic enemy waves with differing paths. I turned my attention to making the game more interesting and fun to play adding different sprites for enemy ships, layered sprites with planets and space debris in the foreground and background scrolling at varying speeds based on their position in the layer to convey the illusion of moving through space. As well as this I added a single image of stars repeated twice constantly scrolling from right to left to simulate stars further increasing the immersive experience. I also added an explosive animation when objects collided, game sound effects, and music.
+By this point a basic game had been created with a score feature, game over screen, ability to restart, and multiple basic enemy waves with differing paths. I turned my attention to making the game more interesting and fun to play adding different sprites for enemy ships, layered sprites with planets and space debris in the foreground and background, scrolling at varying speeds based on their position in the layer to convey the illusion of moving through space. 
+
+As well as this, I added a single image of stars repeated twice constantly scrolling from right to left to simulate space, further increasing the immersive experience. I also added an explosive animation when objects collided, game sound effects, and music.
 
 The one consideration I had overlooked was scaling difficulty for the user based in a space shooter type game. So day 6 I modified the enemy paths and speed they appeared on screen and test played the game to find the right balance of difficulty so they player wouldn't reach the end game on the first try but would be able to progress further and further with each subsequent try.
 
 ### Day 7:
 
-The last day was spent creating an end game for the player spawning a boss type enemy that wouldn't explode immediately when hit by a projectile and presenting the game. This required a life variable for the final enemy, increasing difficulty as the life variable decreased further and further, logic for the behaviour of the final enemy based on the movement of the player, and an end game screen.
+The last day was spent creating an end game for the player spawning a boss type enemy that wouldn't explode immediately when hit by a projectile. This required a life variable for the final enemy, increasing difficulty as the life variable decreased further and further, logic for the behaviour of the final enemy based on the movement of the player, and an end game screen.
 
 ![](https://user-images.githubusercontent.com/83005220/147377477-a8f343af-6a4a-4bb9-81ca-5b1b56cd2654.gif)
 
