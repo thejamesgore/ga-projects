@@ -96,19 +96,19 @@ Key Dates:
 
 ### Day 1-3:
 
-We both decided to use the Spotify API for our project as not only did we both already use Spotify and found some elements to be lacking in the desktop version. We both knew this would be a challenging yet fun project to undertake that would push our ability and provide the most opportunity for learning and growth with our coding.
+As a team collaboration we decided to use the Spotify API for our project as we both used Spotify and found some elements to be lacking in the desktop version. We both knew this would be a challenging yet fun project to undertake that would push our ability and provide the most opportunity for learning and growth with our coding.
 
-We started planning what features we would love to use ourselves and filtered those down to what would be appropriate for our project. We then began to create wireframes settling in on a simple multipage layout with our focus primarily on functionality and prioritising which features would enable us to hit our MVP. We initially began pair coding alternating every hour or so to start to build the basics such as a home page, navigation bar, and basic styling to give us a starting point to both work from. I created the login button with functionality, search bar, and styling using Bulma while Clem further built out the site structure and basic navigation.
+We started planning what features we would love to use ourselves and filtered those down to what would be appropriate for our project. We then began to create wireframes settling in on a simple multipage layout with our focus primarily on functionality and prioritising which features would enable us to hit our MVP. We initially began pair coding alternating every hour or so to start to build the basics such as a home page, navigation bar, and basic styling to give us a starting point to both work from. I created the login button with functionality, search bar, and styling using Bulma while Clem, my team partner, further built out the site structure and basic navigation.
 
 ### Wireframe:
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/146286111-da4a1b46-657c-4f8d-8b1d-f08aad39bae2.png 'Wire Frame')
 
-We then turned our attention to authroization as it seemed it would be challenging.
+We then turned our attention to authorisation.
 
-Due to the complexity and variety of features of the Spotify API a great deal of our time was then spent understanding the 4 different authorization methods available and which would be best suited for our project. However this was unexactedly quite a hurdle initially and took much longer than expected. This was due to the authorization process, which upon reflection now is quite straightforward, however we were missing some key elements that would enable us to proceed and sucessfully get data back from the API. This is detailed further in the Wins & Challenges section.
+Due to the complexity and variety of features of the Spotify API, a great deal of our time was then spent understanding the four different authorisation methods available and which would be best suited for our project. However this was quite a hurdle initially and took much longer than expected to complete. This was due to the authorisation processas we were missing some key elements that would enable us to proceed and sucessfully get data back from the API. This is detailed further in the Wins & Challenges section.
 
-Two functions I created in the SpotifyAuth.js file are below which parse the url Spotify provides the user when they attempt to login some of which contains the bearer token and the function that stores the token in local storage and pushes the user the the podcast page upon successfully logging in.
+There are two functions below that are in the SpotifyAuth.js that I created. These parse the data that is received from the Spotify API found in the url and  contains the bearer token. `SpotifyAuth` stores the token in local storage and pushes the user to the podcast page upon successfully logging in.
 
 ```javascript
 // This function parses the string provided by spotify which contains the bearer token and just returns the token
