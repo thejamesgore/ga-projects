@@ -144,7 +144,7 @@ const SpotifyAuth = () => {
   })
 ```
 
-Once we managed to cross the final hurdle with the authorization process we were able to get data back from the API. We both worked on the same aspects of the project up until this point pair coding, alternating where neccessary, as we believed these early stages were mission critical and two minds working to solve this problem would be better than one.
+Once we managed to cross the final hurdle with the authorization process we were able to get data back from the API. We both worked on the same aspects of the project up until this point pair coding, alternating where neccessary, as we believed these early stages were mission critical and two minds working to solve the issues posed collaboratively would be more constructive.
 
 ### Landing Page:
 
