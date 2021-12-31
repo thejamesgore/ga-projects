@@ -190,7 +190,7 @@ useEffect(() => {
 }, [window.location.href])
 ```
 
-Next we use axios to call the Spotify search endpoint with our string variable passing in the access token stored in local storage during login via the `token` variable in the header.
+Next we use Axios to call the Spotify search endpoint with our string variable passing in the access token stored in local storage during login via the `token` variable in the header.
 
 ```javascript
 const token = localStorage.getItem('accessToken')
@@ -207,7 +207,7 @@ axios.get(
 )
 ```
 
-We take the resonse from our API call and only store the show information from our data object in state using `setResults(response.data.shows)`. We also store any errors, console them out.
+We take the JSON resonse from our API call and store this data object in some state using `setResults(response.data.shows)`. We also store any errors and console them out.
 
 ```javascript
    .then((response) => {
@@ -220,7 +220,7 @@ We take the resonse from our API call and only store the show information from o
   }
 ```
 
-We then display this data using the SearchCard subcomponent and the show data stored in the state in the `results` variable. We used optional chaining `results?.items` as upon first render of the page there may be no data stored in this state thus giving an error when the page loads. Using a turnary we then conditionally rendered the data mapping over the SearchCard subcomponent.
+We then map this data over the SearchCard subcomponent using the `results` variable. Optional chaining was used in conjunction with a turnary statement on `results?.items` as upon first render of the page there may be no data stored in this state variable, thus avoding a page error upon load.
 
 ```javascript
 return (
