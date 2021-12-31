@@ -286,34 +286,25 @@ export default SearchPage
 
 ---
 
-- Authorisation was the largest challenge. The API has a multitude of authorisation flows which allow a user to authenticate. We chose the simplest that met our functional requirements for the project. Despite this we did enounter a range of errors which were 400, 401, 403, & 500. This posed an interesting problem when debugging as we were receiving the access token back from the Spotify API. What we discovered was this token was not being stored in local storage correctly nor passed on with our access requests. This only took a few lines of code to solve once we understood this. 
+Authorisation was the largest challenge. The API has a multitude of authorisation flows which allow a user to authenticate. We chose the simplest that met our functional requirements for the project. Despite this we did enounter a range of errors which were 400, 401, 403, & 500. This posed an interesting problem when debugging as we were receiving the access token back from the Spotify API. What we discovered was this token was not being stored in local storage correctly nor passed on with our access requests. This only took a few lines of code to solve once we understood this. 
 
 We also discovered some endpoints would work while others would not. This was due to the way Spotify API endpoints require the access token to be passed along with other requirements in the string. Once solved we could call any end point and recieve data back succesfully.
 
-- 
 
 ## Bugs
 
 ---
 
-1. Passing data from the podcasts page to the episodes page when a user clicked a podcast card.
-2. Search bar functionality
+- Episodes page
 
-While we have data from 1 endpoint we were unable call the second endpoint and fetch episode data. One main issue is transferring the ID from the Show endpoint to the Episodes endpoint. So for now, it's work in progress, however we have some solutions that would solve for this forexample utilising useParams or useHistory to capture the episode ID and then on the episodes page push the ID into an api call and get all the relevent episodes for that podcast.
-
-This could be resolved by referencing the ID from the Podcast endpoint in the URL and passing it to the episodes endpoint.
-
-Search bar functionality was quite a challenge as we encountered an issue that had multiple solutions all of which we tried but unfortunately due to the structuring and time constraints of our project meant that data wouldn't be able to be easily passed up or down our component tree without the use of React Redux or useContext which at the time we have zero experience or knowledge of however, given enough time we would've solved for.
-
-Instead we found a simple solution which was to instead have the required data as a string which is passed into the browser address using useHistory which can then be pulled by a function on the componenet page we would've typically passed using props or an export function. This meant that the search bar functionality almost worked.
-
-We were able to use the search bar once, call the function and push the user to results page however, if the user entered a new string into the search bar the functionality and access to the search function was lost as we were already on the rendered search results and the button lost functionality. To solve for this we had our useEffect function monitor any change in web address to recall our search function rather than the functionality on our NavBar.js which used a handleClick when the button was pressed to call the function directly.
 
 ## Key Learnings
 
 ---
 
-Working with APIs with such complexity is not always easy but we now have a better understanding of the process of accessing APIs and fetching data to then handle. Altough it's fantastic to use such projects to maximize ones learning during the development process some of our initial plans were out of scope due to time consttraints such as using a global state management tool or implementing the player.
+- Team collaboration greatly aids collective motivation and ability to meet deadlines in a timely fashion
+- Different perspectives enable efficient and creative problem solving, enhancing ones own learning and understanding
+
 
 ## Future Content and Improvements
 
