@@ -172,17 +172,17 @@ We were able to easily create the episodes page as the layout was not too disimi
 
 ---
 
-Below is code from our SearchPage.js which has the functionality to not only search based on the users's query but also render the results mapped over a SearchCard subcomponent. Bar some styling this was my responsibility.
+Below is the code from the SearchPage.js which I was repsonsible for creating.
 
-The search bar is displayed in the NavBar.js using an input which once a user submits a search query the user is pushed to SearchPage.js with their string in the browsers address bar.
+The search bar is displayed in the NavBar.js using an `input`. When a user submits a search query `useHistory` pushes the user to SearchPage.js with the query as a string in the address bar.
 
-The following code allows us to pull and format their search query from their address bar and store it as variable
+The following code allows us to pull and format the search query from the address bar and store it as a variable.
 
 ```javascript
 let string = window.location.pathname.substring(9)
 ```
 
-A useEffect function triggers when the page loads but also when it's dependency variable `window.location.href` changes calling our handleSearch function. This is so if a user has submitted a search query whilst on another page we can render search results immediately by calling our handleSearch function but also if a user enters a new search query while already on this page too.
+A `useEffect` function triggers when the page loads but also when it's dependency variable `window.location.href` changes calling our `handleSearch` function.
 
 ```javascript
 useEffect(() => {
