@@ -152,9 +152,9 @@ Once we managed to cross the final hurdle with the authorization process we were
 
 ### Day 4-5:
 
-We next split responsiblities to focus on different aspects of the project that wouldn't conflict to catch up on development time such as building podcast page, episode page, and the subcomponents that would we be displayed across the site. Developement was much more expeditious as we were able to handle the data from the Spotify API however as we continued to dive deeper into the documentation it was clear within the timeframe we presently had we would not be able to include a player which would've been a 'nice to have'. Clem worked on the card componenets while I worked on the podcast page utilizing axios however we helped each other where neccessary jumping in to pair code to get a 2nd pair of eyes on a particular problem.
+We next split responsiblities to focus on different aspects of the project to catch up on development time such as building the podcast page, the episode page, and the subcomponents that would be used across the site. Developement was much more expeditious as we were able to handle the data from the Spotify API more effectively. Clem worked on the card componenets while I worked on the podcast page utilizing Axios, however we helped each other where neccessary through pair coding.
 
-We were able to hit our MVP on day 5 as we had planned to originally which was a nice relief.
+We were able to hit our MVP on day 5 as we had planned to originally.
 
 ### Podcasts Page:
 
