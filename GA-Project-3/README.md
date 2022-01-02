@@ -189,7 +189,7 @@ async function secureRoute(req, res, next) {
 export default secureRoute;
 ```
 
-I set up a postman workspace so if any member of the team wished to test any functionality locally they would be able to. However, we mostly used zoom and postman on my machine for time efficiency. We tested our endpoints with and without a bearer token for those that were and weren't locked down by our secure route.
+I set up a postman workspace so if any member of the team wished to test any functionality locally they would be able to. However, we mostly used zoom and postman on my machine for time efficiency. We tested our endpoints with and without a bearer token for those that were and were not locked down by our secure route.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378515-e67aa3af-abc5-4705-aa3f-862739922330.png 'Postman')
 
@@ -199,15 +199,17 @@ Similar to our initial approach creating our backend, we coded as a group and in
 
 ### Day 10-14:
 
-I created the members dashboard settling in on using React Map GL due to users being able to have 10,000 API calls per month for free compared to Google which past a certain amount of API calls will charge. Despite this I would end up having to use the Google Api regardless. I created a basic form to create trips and post data to our database however this highlighted one issue with our models which were comments. This meant we had to revisit our backend and tweak our models to enable comments to be posted correctly. This was partly due to the fact we have many to many relationships between our models.
+I created the members dashboard settling on using React Map GL due to users being able to have 10,000 API calls per month for free compared to Google, which past a certain amount of API calls will charge for usage. Despite this I would end up having to use the Google API regardless. I created a basic form to create trips and post data to our database. However this highlighted one issue with our models which was comments. This meant we had to revisit our backend and tweak our models to enable comments to be posted correctly. This was partly due to the fact we have a many-to-many relationship between the models in our database.
 
-This was challenging as we were unsure why we were facing this issue. Although I spent some time identifying the problem using postman and revisiting the backend with my team, once we understood why we were unable to post comments my focus returned to the members dashboard. I was able to use the CountriesCard component my team had made and map all the countries a user had visisted over the component creating members cards giving details of their trip. The I hardcoded data into the map componenet to display drop pins to demonstrate that conceptually the map component is operating successfully. The next challenge was turning the user data from the database into latitude and longditude coordinates that map component would then be able to display.
+This was challenging as we were unsure why we were facing this issue. Although I spent some time identifying the problem using postman and revisiting the backend with my team, once we understood why we were unable to post comments my focus returned to the members dashboard. I was able to use the CountriesCard component my team had made and map all the countries a user had visisted over the component creating members cards giving details of their trip. 
 
-Ultimately I used Google Geocode API which allows one to send a string of a location and recieve back a multitude of data back some of which were the latitude and longditude for that location. Once that data was sent back from Google Geocode I simply set it into some state and passed it down through props which mapped it over the map subcomponent on the dashboard page.
+Then I hardcoded data into the map component to display drop pins to demonstrate that conceptually the map component is operating successfully. The next challenge was turning the user data from the database into latitude and longditude coordinates that the map component would then be able to display.
+
+Ultimately I used Google Geocode API which allows one to send a string of a location and receive back a multitude of data, some of which were the latitude and longditude for that location. Once that data was sent back from Google Geocode I simply set it into some state and passed it down through props which mapped it over the map subcomponent on the dashboard page.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378202-aa12e86a-b9ee-46f5-9cb5-fc1e33bba0d1.png 'Members Dashboard')
 
-I also wanted to make the Country Cards of each place a user had visted more interesting so searched for image APIs which served an image if you submitted a location. I used Pexals Image API as it was free and seemed to produce the most accurate images based on the string, however it isn't perfect and sometimes provides a seemling unrelated image. Here I found two more bugs. When a user first logs in all the drop pins on the map will not render without the map being moved by the user. Secondly environment variables weren't working when using dotenv and as we were still trying to fix the backend comments issue decided to hardcode the API keys and clean up the code once we were able to.
+I also wanted to make the Country Cards of each location a user had visted more interesting, so I searched for image APIs which served an image if a user submitted a location. I used Pexals Image API as it was free and seemed to produce the most accurate images based on the string, however it is not perfect and sometimes provides a seemling unrelated image. Here I found two more bugs. When a user first logs in, all the drop pins on the map will not render unless the map is moved by the user. Secondly environment variables were not working when using DotEnv and, as we were still trying to fix the backend comments issue, we decided to hardcode the API keys and clean up the code once we were able to.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378205-dbf4ff22-c232-4f36-b00d-b774a0fc5f6b.png 'Members cards')
 
@@ -219,9 +221,9 @@ Lastly I created a progress bar of countries visisted while my team worked on st
 
 ---
 
-As I was responsible for the members dashboard below are some key excerpts I'm proud of that were challenging which allow our API to be functional with the external API's I chose to use.
+As I was responsible for the members dashboard, below are some key excerpts I am proud of that allow our API to be functional with the external API's I chose to use.
 
-Firstly we need to get all countries for the user that is logged in and set it to some state with `setCountries`.
+Firstly we get all the country data and set it to some state with `setCountries`.
 
 ```Javascript
   useEffect(() => {
@@ -231,7 +233,7 @@ Firstly we need to get all countries for the user that is logged in and set it t
   }, [])
 ```
 
-Next as we will need to filter all the countries by the current user that is logged in we have a user effect that finds the userId based on the token in local storage and calls an end point. Although we could've created an endpoint to get countries by userId I didn't want to add extra work for my team at the time as they were already problem solving an issue on the backend and our project time was almost over so used this as a work around.
+Next we filter all the country data by the current user that is logged in. A `useEffect` finds the `userId` based on the bearer token in local storage and passes into the `getUser` function. Although during this stage of development we could have created an endpoint to get all countries by `userId`, I did not want to add extra work for my team at the time as they were already problem solving an issue on the backend and our project time was almost over, so I used this method as a work around.
 
 ```Javascript
  useEffect(() => {
