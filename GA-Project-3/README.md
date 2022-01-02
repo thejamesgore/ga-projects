@@ -110,7 +110,7 @@ Key Dates:
 
 ### Day 1-3:
 
-We decided the first week should be dedicated to project planning and fleshing out the backend while the second week should be focused on creating the frontend. Initially we brainstormed ideas settling in on creating a travel app early on and then further brainstormed features our project should have. We then used Figma to create a basic design displaying each page we would create and their subcomponents.
+We decided the first week should be dedicated to project planning and fleshing out the backend, while the second week focused on creating the frontend. Initially we brainstormed ideas, settling on creating a travel app early on and then further brainstorming features our project should have. We then used Figma to create a basic design displaying each page we would create and their subcomponents.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378251-4d6d1835-4c1e-4931-9450-c031b91d41fb.png 'Figma')
 
