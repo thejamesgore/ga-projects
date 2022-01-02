@@ -114,11 +114,11 @@ We decided the first week should be dedicated to project planning and fleshing o
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378251-4d6d1835-4c1e-4931-9450-c031b91d41fb.png 'Figma')
 
-We then set up a trello kanban board to enable agile working with a backlog of tasks ranked and assigned to each member of the team, most of which were all group tasks initially so we could hone in on the models we would need based on the project requirements, and have a base backend from which we could then work on separately.
+We then set up a trello kanban board to enable agile working with a backlog of tasks ranked and assigned to each member of the team, most of which were group tasks to begin with, so we could hone in on the models we would need based on the project requirements, and have a base backend from which we could then work on separately.
 
-For the sake of simplicity and an expeditious initial coding experience we would all group code using VS Code Live Share and Zoom to create the base backend database using Express and MongoDB taking turns to code different aspects of the same element of our backend or code compelete aspects solo while others made suggestions. This ensured a smooth coding experience and also allowed us to allocate days to our timelime purely for problem solving or for aspects that would be unexpectedly significantly demanding and take more time than expected which did happen.
+For the sake of simplicity and an expeditious initial coding experience, we group coded using VS Code Live Share and Zoom to create the base backend database using Express and MongoDB. We took turns to code different aspects of the same element of our backend before moving on to work individually. This ensured a smooth coding experience and also allowed us to allocate days to our timelime for problem solving.
 
-After settling in on our models for the project we then assigned different responsbilities on our kanban board that would not conflict with each other while using VS Code Live Share to develop different aspects of the backend at the same time to ensure functionality at this early stage. We took one model each, then focused on creating the relevant controllers for each model, shared our work with the group, created the seed data together and tested it successfully.
+After settling on our models for the project, we then assigned different responsbilities on our kanban board that would not conflict with each other while using VS Code Live Share to develop different aspects of the backend at the same time to ensure functionality at this early stage. We took one model each, then focused on creating the relevant controllers for each model, shared our work with the group, created the seed data together and tested it successfully.
 
 Below is our Trello kanban board post project completion.
 
