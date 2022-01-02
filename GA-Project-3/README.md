@@ -126,9 +126,9 @@ Below is our Trello kanban board post project completion.
 
 ### Day 4-7:
 
-From here as a team we were able to develop the different aspects of the backend we were individually responsible for at a similar pace helping each other as we went, pushing and merging code when we hit small significant milestones, which meant we could spend a moderate amount of time checking each others work for quality assurance and allocate time to testing.
+From here as a team we were able to develop the different aspects of the backend we were individually responsible for at a similar pace helping each other as we went, pushing and merging code when we hit significant milestones. This meant we spent a suitable amount of time checking each others work for quality assurance and to allocate time for testing.
 
-We applied further middleware to ensure functionality such as CORS and environment variables using DotEnv and proceeded to create our endpoints, authorization, and secure routes. My focus after adding some key endpoints and was to create a secure route using jsonwebtoken and dotenv to enable registration & login on the front end and endpoints that require a bearer token to access.
+We applied further middleware to ensure functionality such as CORS and environment variables using DotEnv and proceeded to create our endpoints, authorisation, and secure routes. My focus, after adding some key endpoints, was to create a secure route using JSON Web Token and DotEnv to enable registration & login on the frontend and endpoints that require a bearer token to access.
 
 ```Javascript
 import jwt from 'jsonwebtoken'
@@ -189,13 +189,13 @@ async function secureRoute(req, res, next) {
 export default secureRoute;
 ```
 
-I set up a postman workspace so if any member of the team wished to test any functionality locally they would be able to however we mostly used zoom and postman on my machine for time efficiency. We tested our endpoints with and without a bearer token for those that were and weren't locked down by our secure route.
+I set up a postman workspace so if any member of the team wished to test any functionality locally they would be able to. However, we mostly used zoom and postman on my machine for time efficiency. We tested our endpoints with and without a bearer token for those that were and weren't locked down by our secure route.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378515-e67aa3af-abc5-4705-aa3f-862739922330.png 'Postman')
 
 ### Day 8-9:
 
-Similar to our initial approach creating our backend, we coded as a group and initialized our React frontend locally on my machine using Zoom and VS Code Live Share to edit the same project file ensuring a functional base frontend we could push to git hub. We created a simple layout, functionality to call our backend using Axios, and the basics of responsive search on our coutries page. From here my focus was purely on the members dashboard while my team created other aspects of the app such as CountriesCard component and search.
+Similar to our initial approach creating our backend, we coded as a group and initialized our React frontend locally on my machine, using Zoom and VS Code Live Share to edit the same project file. This ensured a functional base frontend we could push to Git Hub before we worked on componenets individually. We created a simple layout, functionality to call our backend using Axios, and the basics of responsive search on our coutries page. From here my focus was on the members dashboard while my team created other aspects of the app, such as CountriesCard component and responsive search.
 
 ### Day 10-14:
 
