@@ -242,9 +242,9 @@ Next we filter all the country data by the current user that is logged in. A `us
   }, [])
 ```
 
-As the getAllCountries function gets all data related to where a user has visited not just the country names we need to filter this down to just country names matching the current user and set it to some state `setUserCountries`. However as our database at the time recorded the username of our users when they posted data and not the userId I had to match `userId.data.username`. We've changed this in our backend so now userId is displayed also however this is not reflected in our frontend yet. For better semantic sense `setUserCountries` could be `setCountryNames`.
+As the `getAllCountries` function gets all data related to where a user has visited, we filter this down to just country names matching the current user and set it to some state with `setUserCountries`. However, as our database at the time recorded the username of our users when they posted data and not the `userId` I had to match `userId.data.username`. We have changed this in our backend so now `userId` is displayed also. For better semantic sense `setUserCountries` could be called `setCountryNames`.
 
-As we will also use this data to map over our MembersCard.js component and I didn't want to filter the data again later I set this newly filtered data to it's own state to use later `setCountryData`. For better semantic sense this could be `setFilteredCountryData`.
+As we will also use this data to map over our MembersCard.js component and I did not wish to filter the data again, I set this newly filtered data to its own state with `setCountryData` for later use. For better semantic sense this could be called `setFilteredCountryData`.
 
 ```Javascript
 useEffect(() => {
@@ -279,7 +279,7 @@ useEffect(() => {
 
 ```
 
-Next we have our Geocode function `getCoordinates` which allows you to pass in a string of location, recieve a latitude and longditude, push the coordinates into an array variable `geocodedCountries` and set that to some state using `setCoordinates`. We have a use effect that calls this function when it's dependcy array `userCountries` changes, which we set in the previous block of code.
+Next we have our Geocode function `getCoordinates` which allows you to pass in a string of a location, recieve a latitude and longditude, push the coordinates into an array variable `geocodedCountries`, and set that to some state using `setCoordinates`. We have a `useEffect` that calls this function when its dependency array `userCountries` changes, which we set in the previous block of code.
 
 ```Javascript
   useEffect(() => {
@@ -307,7 +307,7 @@ const getCoordinates = async (location) => {
   }
 ```
 
-Now we have our coordinates in some state called `coordinates` we can easily pass this down via props to a our map component and handle that data to create drop pins on the map component to ensure the this file is as short and readable as possible.
+Now we have our coordinates in some state called `coordinates`. We can easily pass this down via props to a our map component and handle that data to create drop pins on the map component to ensure the this file is as short and readable as possible.
 
 ```Javascript
 <Map props={coordinates} />
@@ -317,7 +317,7 @@ Now we have our coordinates in some state called `coordinates` we can easily pas
 
 ---
 
-A bug we faced was when a user logs in upon first render of the page one or none of the drop pins on the map will display despite the user having visisted many countries until the user interacts with the map.
+When a user first logs into the members dashboard, only one of the drop pins on the map will display despite the user having visisted many countries unless the user interacts with the map.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378322-4686b378-a9e5-4d3f-ac0d-a0600102ce8b.gif 'Map Bug')
 
