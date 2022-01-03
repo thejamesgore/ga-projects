@@ -123,15 +123,17 @@ I also created a trello kanban board with each task required to create the backe
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147387020-25505a6d-5452-4aa3-a40e-b43960ccae7f.png 'Trello Kanban Board')
 
-With a strong plan, timeline and vision in mind I began on the backend initializing a base django database for the project API and installed Django Rest Framework following the api-guide in the documentation. Then I started to add some basic routing by building out the urls.py file but also by returning a list of routes in the views.py file for easier development and usage with Django Rest Framework. For all views I added `@api_view([])` depending on what type of request the api would be serving, e.g. `GET`, `POST`, `PUT`, `DELETE`.
+With a strong plan, timeline and vision in mind I began on the backend initialising a base django database for the project API and installed Django Rest Framework following the API guide in the documentation. Then I started to add some basic routing by building out the urls.py file, but also by returning a list of routes in the views.py file for easier development and usage with Django Rest Framework. For all views I added `@api_view([])` depending on what type of request the API would be serving, such as `GET`, `POST`, `PUT`, `DELETE`.
 
-I then added Django CORS Headers as with previous projects in the past during the development process the API will by default not serve data from another domain outside the domain from which the resource was first served. This will make testing endpoints in Postman and eventually calling endpoints with Axios in the frontend smoother.
+I then added Django CORS Headers, similar to previous projects, as during the development process the API will by default not serve data from another domain outside the domain from which the resource was first served. This will make testing endpoints in Postman and eventually calling endpoints with Axios in the frontend possible.
 
-Next I used the DrawSQL tables to help create the models for the API in models.py thinking about the neccessary data types for each field. During this time I realised I would need to find a solution to allow the site admin to upload product images as the product model would require an image field. With some research I discovered Python Imaging Library also known as Pillow as a solution which would allow static files in an Image folder so installed and configued as required and added updated the image field in the product model. I created a test product via the Admin Panel to ensure this was working correctly and images were being stored successfully in the images folder.
+Next I used the DrawSQL tables to help create the models for the API in models.py thinking about the neccessary data types for each field. During this time I realised I would need to find a solution to allow the site admin to upload product images as the product model would require an image field. With some research I discovered Python Imaging Library, also known as Pillow, as a solution which would allow static files in an Image folder. Once installed and configued as required I updated the image field in the product model. I created a test product via the Admin Panel to ensure this was working correctly and images were being stored successfully in the images folder.
+
+To ensure images would then be able to be served when deployed, I installed Django Cloudinary Storage allowing images to be stored on the Cloudinary servers.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147385178-800bb41b-241e-44fa-98ae-7d3e48e211d0.png 'Admin Panel')
 
-As I was working with Django Rest Framework all data needs to be JSON Serializable or it will not be successfully served by the API so I proceeded to serialize all models in a serializers.py and then updated the views.py file as neccessary.
+As I was working with Django Rest Framework, all data needs to be JSON Serializable or it will not be successfully served by the API. I proceeded to serialize all models in a serializers.py file and then updated the views.py file as neccessary.
 
 ```python
 # Will return all products
@@ -144,7 +146,7 @@ def getProducts(request):
 
 ### Week 2:
 
-After adding some dummy data I began testing the API using Postman and via the Django Rest Framework UI in browser to ensure data was being served successfully which it was so the next task was to implement token authorization. Similarly to previous projects JSON Web Tokens are the method by which authorization would be possible so I installed Simple JWT and began to update the serializers.py and views.py creating a `POST` request functionality to register users but also permissioned classes from Django Rest Framework to require authentication to access aspects of the API such as a `GET` request for user data.
+After adding some dummy data I began testing the API using Postman and via the Django Rest Framework UI in browser. Once I ensured data was being served successfully, the next task was to implement token authorization. Similar to previous projects, JSON Web Tokens are the method by which authorization would be possible. I installed Simple JWT and began to update the serializers.py and views.py files creating a `POST` request functionality to register users. I also created permissioned classes from `rest_framework.permissions` to require an `IsAuthenticated` check on some views.
 
 ```python
 # Will return user data
