@@ -190,23 +190,27 @@ Two tools that made this easier to manage were Redux Thunk, which allowed for as
 
 ### Week 3:
 
-The final focus of this week was to hit the MVP as soon as possible, which would require creating a complete checkout process with the user being able to submit their order successfully and order information populating on the backend or admin panel once submitted, and further improvements to layout to move the site more inline with the figma designs. Checkout followed a sequential process of creating the neccessary forms to capture the relevant user information based on the current step, pass that into the global state, and then move onto to the next step of the checkout ultimately finishing with order confirmation summarizing all information in the global state.
+The final focus of this week was to hit the MVP as soon as possible, which requird creating a complete checkout process with the user being able to submit their order successfully and order information populating on the backend or admin panel once submitted. Further improvements were added to the layout at this time.
+
+Checkout followed a sequential process of creating the neccessary forms to capture the relevant user information based on the current step, pass that into the global state, and then move onto to the next step of the checkout, ultimately finishing with order confirmation which summarises all information in the global state.
 
 ![](https://user-images.githubusercontent.com/83005220/147457778-b516cfab-c2bd-4d2e-8f13-6f89a97d529a.png 'Checkout')
 
-One consideration during this process was data protection for the end user and how data would be stored. In this project the payment details of each customer is stored in the Payment Method field shown in the screenshot below. This would make sense for manual processing of payments however most online stores use a 3rd part processor such as Stripe, PayPal, GooglePay, or similar and the order confirmation page would be the perfect place to integrate such payment processors. However, for the scope of this project it was more important to be able to ensure this data could be successfully captured and posted to the API as a proof of concept. Checking the order in the Admin panel we can see payment information was successfully captured under PaymentMethod in the screenshot below thus hitting project MVP.
+One consideration during this process was data protection for the end user and how data would be stored. In this project the payment details of each customer is stored in the Payment Method field shown in the screenshot below. This would make sense for manual processing of payments, however most online stores use a third party processor such as Stripe, PayPal, GooglePay, or similar. The order confirmation page would be suitable to integrate such payment processors. 
+
+However, for the scope of this project it was more important to be able to ensure this data could be successfully captured and posted to the API as a proof of concept. Checking the order in the Admin panel we can see payment information was successfully captured under PaymentMethod in the screenshot below, thus hitting project MVP.
 
 ![](https://user-images.githubusercontent.com/83005220/147458054-d9efd3cb-31ea-4587-a6a1-23cbd0920972.png 'Order Page')
 
-As I already had experience developing frontend environments in React from prior projects the rest of the development process was rather smooth unlike some earlier instances which required significant time dedicated to problem solving issues for both Django and React Redux. I continued to work on the presentation of the site and user experience creating a carousel. I had to create a new endpoint in Django to only serve the top products based on their 5 star rating, which when called in Axios was mapped over the carousel componenet.
+As I already had experience developing frontend environments in React from prior projects, the rest of the development process was rather smooth. I continued to work on the presentation of the site and user experience creating a carousel. I had to create a new endpoint in Django to only serve the top products based on their 5 star rating, which when called in Axios was mapped over the carousel component.
 
-I also encountered some bugs during this time especially when it came to deployment requiring changes to some key elements such as React Router Dom which is further elaborated on in the bug section.
+I also encountered some bugs during this time especially when it came to deployment requiring changes to some key elements, such as React Router Dom which is further elaborated on in the bug section.
 
 ## Featured Code
 
 ---
 
-Below are some key excerpts of code which allow items to be added to cart and the global state when navigating from a page featuring a product to the cart.
+Below are some key excerpts of code which allow items to be added to cart and the global state.
 
 First we populate the product data on the page with a `useEffect()` which dispatches an action `listProductDetails(match.params.id)` to Redux. This action passes in the current product id which is in the browser url hence the `match.params.id`.
 
@@ -221,7 +225,7 @@ function ProductPage({ match, history }) {
   }, [dispatch, match])
 ```
 
-In our Redux actions `ListProductDetails` is called which triggers an Axios get request to our Django API. Upon success the response from the API is passed to the reducer which changes the current state in our store of `productDetails`.
+In our Redux actions, `ListProductDetails` is called which triggers an Axios get request to our Django API. Upon success the response from the API is passed to the reducer which changes the current state in our store of `productDetails`.
 
 ```Javascript
 export const listProductDetails = (id) => async (dispatch) => {
@@ -243,7 +247,7 @@ Now the `productDetails` variable has the current product data from the API as i
 const productDetails = useSelector((state) => state.productDetails)
 ```
 
-Now the user can see the relevant data for this product and can click Add To Cart which when they do calls the addToCart function pushing them to the cart page which includes the product id from `match.params.id` but also the item quantity which was set into local state.
+Now the user can see the relevant data for this product and can click Add To Cart button, which when they do, calls the `addToCart` function, which pushes them to the cart page. This includes the product id from `match.params.id` but also the item quantity which was set into local state.
 
 ```Javascript
 const addToCart = () => {
@@ -251,7 +255,7 @@ const addToCart = () => {
 }
 ```
 
-On the Cart screen a very similar process happens upon initial render of the page. Upon first render a `useEffect()` dispatches the `addToCart()` action to redux which is passed the product id and item quantity via two variables pulling this data from the URL.
+On the Cart screen a very similar process happens upon initial render of the page. Upon first render a `useEffect()` dispatches the `addToCart()` action to Redux which is passed two variables `productId` and `qty` by pulling this data from the URL.
 
 ```Javascript
   const productId = match.params.id
@@ -266,7 +270,7 @@ On the Cart screen a very similar process happens upon initial render of the pag
   }, [dispatch, productId, qty])
 ```
 
-In our Redux actions `addToCart` is called with the product id and quanitity passed into the function and does another Axios api call for the current product id. However slightly differently this time product data is sent to the reducer to change the current state in the local store but also adds the item to the local storage in the browser. This is useful as if a user closes their browser but returns to the page all items that were added to the cart will still be visible thanks to local storage.
+In our Redux actions, `addToCart` is called with the product id and quanitity passed into the function. There is an Axios API call using this information on our products endpoint. Product data is dispatched to the reducer, changing the current state while also updating the local storage by adding the current item. This is useful as if a user closes their browser but returns to the page, all items that were added to the cart will still remain visible thanks to local storage.
 
 ```Javascript
 export const addToCart = (id, qty) => async (dispatch, getState) => {
@@ -289,13 +293,13 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
 
 ```
 
-Lastly this item is visible in the cart as the current cart is pulled from the state with a `useSelector()` function and rendered on the page.
+Lastly this item remains visible in the cart as all items are pulled from the state with a `useSelector()` function and rendered on the page.
 
 ```Javascript
   const cart = useSelector((state) => state.cart)
 ```
 
-Although there are many steps to this process the benefits of this approach is there is no need to pass state up and down componenets which can become troublesome for a project of this size, regardless of whether the user is logged in or not the cart items will remain the same, and user experience isn't impeded.
+Although there are many steps to this process, the benefits of this approach is there is no need to pass state up and down components which can become troublesome for a project of this size. Regardless of whether the user is logged in or not, the cart items will remain the same and user experience is not impeded.
 
 ## Bugs
 
