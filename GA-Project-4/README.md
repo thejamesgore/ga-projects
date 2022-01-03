@@ -305,33 +305,31 @@ Although there are many steps to this process, the benefits of this approach is 
 
 ---
 
-When deployed the app wouldn't route properly when the user refreshed the page or navigated away and back to the same page. This was due to how the routing system works with React Router Dom & the configuration of Django Rest Frame Work. As this was after a great deal of development on the backend I didn't wish to change anything too significantly with the API to solve this problem as it could create 2nd and 3rd order of effect bugs that I may not have been aware of so instead implemented a different type of routing using Hash Router at this late stage which solved the problem after some research on Stack Overflow.
+When intially deployed the app would not route properly if user refreshed the page or navigated away and back to the same page. This was due to how the routing system works with React Router Dom & the configuration of Django Rest Frame Work. As this was after a great deal of development on the backend, I did not wish to change anything too significantly with the API to solve this problem as it could create 2nd and 3rd order of effect bugs. As a solution I implemented a different type of routing using Hash Router at this stage which solved the problem after some research on Stack Overflow.
 
 Ultimately Django was recognizing any page refresh or navigation back to some pages as a request for a hard coded url or server side routing, where many of the urls did not exist, so is unable to serve any data.
 
-Hash Router solves this problem by adding a `#` in the url enabling server side routing to be independent from client side routing in React by having all urls created in React following the `#` and being ignored by the backend.
+Hash Router solves this problem by adding a `#` in the url. This enables server side routing to be independent from client side routing in React. All urls created in React follow the `#` and are ignored by the backend.
 
 ## Wins and Challenges
 
 ---
 
-This was a successful yet extremely challenging project especially as it was solo. The biggest win was of course achieving my goal of successfully implementing React Redux however, this was also the largest project I had completed to date and introduced a new language, Python, that I had not used to this significance before.
+This was a successful yet extremely challenging project, especially as it was a solo effort. The biggest win was achieving my goal of successfully implementing React Redux. However, this was also the largest project I had completed to date and introduced a new language, Python, that I had not used to this extent before.
 
 The greatest challange was the learning curve using Python, familiarising myself with Django fully and it's capabilities and limitations, and the learning curve using React Redux.
 
-A second challenge was working alone. Although it does have the benefit of meaning a I'm able learn the most I do enjoy working in a team even if working completely independently on a specific feature.
+I demonstrated my ability to work individually on coding projects. Although it provides extensive opportunities for self learning, it also makes me appreciate the values of team working where different perspectives and approaches can be shared in developing efficient coding.
 
 ## Key Learnings
 
 ---
 
-My primary goal with this project was to successfully learn to implement React Redux for global state management which I was able to do successfully. I also successfully allocated extra time to problem solve one major issue on the backend and one major issue on the frontend which was a fantastic approach as despite this being the longest project time I had so far, expecting to face unknown issues and allowing extra time purely for bug fixing or extra development for potential issues was vital to maintaining the project project timeline I had initially set. However, even so I was unable to achieve my full vision for the project due to time constraints as ultimately there is only so much one can do.
+My primary goal with this project was to implement React Redux for global state management which I was able to do successfully. I also managed to allocate the correct amount of time to problem solve any major issues encountered on the backend and frontend.
 
-I would love to have similar responsibilities and goals implementing many key features I did in this project such as Redux although in a team based environment as collaboration is also a fantastic way to learn, see different perspectives and ways to problem solve, and ofcourse develop oneself which was one aspect I really missed when working on this project solo.
+I enjoyed the challenges of responsibilities and goals in implementing this project and problem solving.
 
-This was the first time approaching development slightly differently compared to previous projects with regards to version contorl. Unlike my last group project where we used individual development branches named after ourselves, e.g. development-james, for this project I used branches named after features to better approximate a working environment as a colleague working working on the navigation bar would find it easier to pick up where someone else left off on a branch named development-navbar. Feature based branches meant working on different aspects of the project and switching from branch to branch also allowed me to continue where I left off from previous days much easier and insulate work if I need to make small modifications to other aspects of the project.
-
-Although one can plan to quite a significant extent initially, until the development process begins one will never truly know all tasks required to achieve each goal nor the time they will take. Some may have a percieved expectation of taking a considerable time yet will be quite easy to create and others may seem simple but create further challenges or bugs one may not expect.
+Version control differed to previous projects which was advantageous. Unlike my last group project where we used individual development branches named after ourselves, such as development-james, for this project I used branches named after features. This better approximated a working environment as a colleague working working on the navigation bar would find it easier to pick up where someone else left off on a branch named development-navbar. Feature based branches mean working on different aspects of the project and switching from branch to branch also allows one to insulate work if needed.
 
 ## Future Content and Improvements
 
