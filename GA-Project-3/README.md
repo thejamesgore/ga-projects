@@ -23,7 +23,7 @@ This was a collaborative three person project with a 14 day timeframe to complet
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147380884-179a6852-6e46-4678-bf6c-a0cde15436c2.png 'Landing Page')
 
-Live Version:
+Live Version: https://ga-project3-530d2.firebaseapp.com/
 
 Please feel free to login using the following credentials:
 
