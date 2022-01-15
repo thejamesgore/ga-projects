@@ -19,11 +19,12 @@ Table of Contents:
 
 A podcast feed using the Spotify API that allows the user to easily see all the podcasts they're presently subscribed to and the latest episodes for those shows. At the time of development this feature was extremely difficult to find in the Spotify desktop app which we were both avid users of and enjoy using to listen to podcasts.
 
-This was a collaborative two person project with a 7 day timeframe to complete and present our work.
+This was a collaborative two person project with a 7 day time frame to complete and present our work.
 
 Please use the following credentials to login to the live version:
-- username: 	login@testlogin.com
-- password:   thejamesgore
+
+- username: login@testlogin.com
+- password: thejamesgore
 
 Live Version: https://thejamesgore-project2.herokuapp.com/
 
@@ -37,8 +38,8 @@ Original Repository With Full Commit History: https://github.com/thejamesgore/sp
 
 To run and use the app you will need to do the following:
 
-- Create a spotify account if you don't already have one
-- Upgrade your spotify account to a developers account via this link https://developer.spotify.com/dashboard/ and following the guide on this page https://developer.spotify.com/documentation/web-api/
+- Create a Spotify account if you don't already have one
+- Upgrade your Spotify account to a developers account via this link https://developer.spotify.com/dashboard/ and following the guide on this page https://developer.spotify.com/documentation/web-api/
 - Create an app on the developer dashboard & add localhost:3000/ to the uri of the app
 - In the SpotifyAuth.js change the clientID string value to the client id of the app you created
 - Clone or download the repo. Original can be found here - https://github.com/thejamesgore/spotify-podcast-app
@@ -50,9 +51,9 @@ To run and use the app you will need to do the following:
 ---
 
 - Consume a public API - this could be anything but must make sense for the project
-- Have several components - the project should be structured appropirately
+- Have several components - the project should be structured appropriately
 - The app should have multiple pages and have routing
-- Include wireframes designed before building the app
+- Include wire frames designed before building the app
 
 ---
 
@@ -96,22 +97,22 @@ Key Dates:
 
 ### Day 1-3:
 
-As a team collaboration we decided to use the Spotify API for our project as we both used Spotify and found some elements to be lacking in the desktop version. We both knew this would be a challenging yet fun project to undertake that would push our ability and provide the most opportunity for learning and growth with our coding.
+As a team collaboration we decided to use the Spotify API for our project as we both used Spotify and found some elements to be lacking in the desktop version. We both knew this would be a challenging yet fun project to undertake that would push our ability and provide the most opportunity for learning and growth with our coding. We used Zoom and screen sharing throughout the development process as we were both working remotely
 
-We started planning what features we would love to use ourselves and filtered those down to what would be appropriate for our project. We then began to create wireframes settling in on a simple multipage layout with our focus primarily on functionality and prioritising which features would enable us to hit our MVP. We initially began pair coding alternating every hour or so to start to build the basics such as a home page, navigation bar, and basic styling to give us a starting point to both work from. I created the login button with functionality, search bar, and styling using Bulma while Clem, my team partner, further built out the site structure and basic navigation.
+We started planning what features we would love to use ourselves and filtered those down to what would be appropriate for our project. We then began to create wire frames settling in on a simple multipage layout with our focus primarily on functionality and prioritising which features would enable us to hit our MVP. We initially began pair coding alternating every hour or so to start to build the basics such as a home page, navigation bar, and basic styling to give us a starting point to both work from. I created the login button with functionality, search bar, and styling using Bulma while Clem, my team partner, further built out the site structure and basic navigation.
 
-### Wireframe:
+### Wire frame:
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/146286111-da4a1b46-657c-4f8d-8b1d-f08aad39bae2.png 'Wire Frame')
 
 We then turned our attention to authorisation.
 
-Due to the complexity and variety of features of the Spotify API, a great deal of our time was then spent understanding the four different authorisation methods available and which would be best suited for our project. However this was quite a hurdle initially and took much longer than expected to complete. This was due to the authorisation processas we were missing some key elements that would enable us to proceed and sucessfully get data back from the API. This is detailed further in the Wins & Challenges section.
+Due to the complexity and variety of features of the Spotify API, a great deal of our time was then spent understanding the four different authorisation methods available and which would be best suited for our project. However this was quite a hurdle initially and took much longer than expected to complete. This was due to our authorisation process missing some key elements that would enable us to proceed and successfully get data back from the API. This is detailed further in the Wins & Challenges section.
 
-There are two functions below that are in the SpotifyAuth.js that I created. These parse the data that is received from the Spotify API found in the url and  contains the bearer token. `SpotifyAuth` stores the token in local storage and pushes the user to the podcast page upon successfully logging in.
+There are two functions below that are in the SpotifyAuth.js that I created. These parse the data that is received from the Spotify API found in the url and contains the bearer token. `SpotifyAuth` stores the token in local storage and pushes the user to the podcast page upon successfully logging in.
 
 ```javascript
-// This function parses the string provided by spotify which contains the bearer token and just returns the token
+// This function parses the string provided by Spotify which contains the bearer token and just returns the token
 const getReturnedParamsFromSpotifyAuth = (hash) => {
   const stringAfterHashtag = hash.substring(1)
   const paramsInUrl = stringAfterHashtag.split('&')
@@ -144,7 +145,7 @@ const SpotifyAuth = () => {
   })
 ```
 
-Once we managed to cross the final hurdle with the authorization process we were able to get data back from the API. We both worked on the same aspects of the project up until this point pair coding, alternating where neccessary, as we believed these early stages were mission critical and two minds working to solve the issues posed collaboratively would be more constructive.
+Once we managed to cross the final hurdle with the authorization process we were able to get data back from the API. We both worked on the same aspects of the project up until this point pair coding, alternating where necessary, as we believed these early stages were mission critical and two minds working to solve the issues posed collaboratively would be more constructive.
 
 ### Landing Page:
 
@@ -152,7 +153,7 @@ Once we managed to cross the final hurdle with the authorization process we were
 
 ### Day 4-5:
 
-We next split responsiblities to focus on different aspects of the project to catch up on development time such as building the podcast page, the episode page, and the subcomponents that would be used across the site. Developement was much more expeditious as we were able to handle the data from the Spotify API more effectively. Clem worked on the card componenets while I worked on the podcast page utilizing Axios, however we helped each other where neccessary through pair coding.
+We next split responsibilities to focus on different aspects of the project to catch up on development time such as building the podcast page, the episode page, and the sub components that would be used across the site. Development was much more expeditious as we were able to handle the data from the Spotify API more effectively. Clem worked on the card components while I worked on the podcast page utilizing Axios, however we helped each other where necessary through pair coding.
 
 We were able to hit our MVP on day 5 as we had planned to originally.
 
@@ -162,7 +163,7 @@ We were able to hit our MVP on day 5 as we had planned to originally.
 
 ### Day 6-7:
 
-We were able to easily create the episodes page as the layout was not too disimilar from the podcasts page allowing us to use the same subcomponents, however the functionality slightly differed. Clem worked on the episodes page providing which had a bug when clicking from the podcast page that we were unable to solve for completely which is detailed in the bug section. I focused on the search functionality which was slightly challenging due to how the page would initially render without data that I was able to solve using optional chaining. Lastly we added some finishing touches to the styling and presented our project.
+We were able to easily create the episodes page as the layout was not too dissimilar from the podcasts page allowing us to use the same sub components, however the functionality slightly differed. Clem worked on the episodes page providing which had a bug when clicking from the podcast page that we were unable to solve for completely which is detailed in the bug section. I focused on the search functionality which was slightly challenging due to how the page would initially render without data that I was able to solve using optional chaining. Lastly we added some finishing touches to the styling and presented our project.
 
 ### Search Page:
 
@@ -172,7 +173,7 @@ We were able to easily create the episodes page as the layout was not too disimi
 
 ---
 
-Below is the code from the SearchPage.js which I was repsonsible for creating.
+Below is the code from the SearchPage.js which I was responsible for creating.
 
 The search bar is displayed in the NavBar.js using an `input`. When a user submits a search query `useHistory` pushes the user to SearchPage.js with the query as a string in the address bar.
 
@@ -207,7 +208,7 @@ axios.get(
 )
 ```
 
-We take the JSON resonse from our API call and store this data object in some state using `setResults(response.data.shows)`. We also store any errors and console them out.
+We take the JSON response from our API call and store this data object in some state using `setResults(response.data.shows)`. We also store any errors and console them out.
 
 ```javascript
    .then((response) => {
@@ -220,7 +221,7 @@ We take the JSON resonse from our API call and store this data object in some st
   }
 ```
 
-We then map this data over the SearchCard subcomponent using the `results` variable. Optional chaining was used in conjunction with a turnary statement on `results?.items` as upon first render of the page there may be no data stored in this state variable, thus avoding a page error upon load.
+We then map this data over the SearchCard sub component using the `results` variable. Optional chaining was used in conjunction with a ternary statement on `results?.items` as upon first render of the page there may be no data stored in this state variable, thus avoding a page error upon load.
 
 ```javascript
 return (
@@ -286,10 +287,9 @@ export default SearchPage
 
 ---
 
-Authorisation was the largest challenge. The API has a multitude of authorisation flows which allow a user to authenticate. We chose the simplest that met our functional requirements for the project. Despite this we did enounter a range of errors which were 400, 401, 403, & 500. This posed an interesting problem when debugging as we were receiving the access token back from the Spotify API. What we discovered was this token was not being stored in local storage correctly nor passed on with our access requests. This only took a few lines of code to solve once we understood this. 
+Authorisation was the largest challenge. The API has a multitude of authorisation flows which allow a user to authenticate. We chose the simplest that met our functional requirements for the project. Despite this we did encounter a range of errors which were 400, 401, 403, & 500. This posed an interesting problem when debugging as we were receiving the access token back from the Spotify API. What we discovered was this token was not being stored in local storage correctly nor passed on with our access requests. This only took a few lines of code to solve once we understood this.
 
-We also discovered some endpoints would work while others would not. This was due to the way Spotify API endpoints require the access token to be passed along with other requirements in the string. Once solved we could call any end point and recieve data back succesfully.
-
+We also discovered some endpoints would work while others would not. This was due to the way Spotify API endpoints require the access token to be passed along with other requirements in the string. Once solved we could call any end point and recieve data back successfully.
 
 ## Bugs
 
@@ -297,25 +297,26 @@ We also discovered some endpoints would work while others would not. This was du
 
 - Episodes page
 
-
 ## Key Learnings
 
 ---
 
+- Importance of structuring app so logic such as API calls, token handling, authorisation, are all separate from data mapping
+- Usage of key React hooks such as `useState()` & `useEffect()`
+- Routing pages using React-Router-Dom & structuring the React app into subcomponents
 - Team collaboration greatly aids collective motivation and ability to meet deadlines in a timely fashion
 - Different perspectives enable efficient and creative problem solving, enhancing ones own learning and understanding
-
 
 ## Future Content and Improvements
 
 ---
 
-- logout button
-- show notes
-- hide/show episodes button
-- player to stream shows
-- show episodes that user has not yet listned to
-- when a user finishes listening to an episode it is removed from the list
-- podcast queue
-- ability for the user to organise episodes and reorder them
-- adding shows from the search list
+- Logout button
+- Show notes
+- Hide/show episodes button
+- Player to stream shows
+- Show episodes that user has not yet listened to
+- When a user finishes listening to an episode it is removed from the list
+- Podcast queue
+- Ability for the user to organise episodes and reorder them
+- Adding shows from the search list
