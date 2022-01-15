@@ -287,7 +287,9 @@ export default SearchPage
 
 ---
 
-Authorisation was the largest challenge. The API has a multitude of authorisation flows which allow a user to authenticate. We chose the simplest that met our functional requirements for the project. Despite this we did encounter a range of errors which were 400, 401, 403, & 500. This posed an interesting problem when debugging as we were receiving the access token back from the Spotify API. What we discovered was this token was not being stored in local storage correctly nor passed on with our access requests. This only took a few lines of code to solve once we understood this.
+Authorisation was the largest challenge. The API has a multitude of authorisation flows which allow a user to authenticate. We chose the simplest that met our functional requirements for the project. Despite this we did encounter a range of errors which were 400, 401, 403, & 500.
+
+This posed an interesting problem when debugging as we were receiving the access token back from the Spotify API. What we discovered was this token was not being stored in local storage correctly nor passed on with our access requests. This only took a few lines of code to solve once we understood this.
 
 We also discovered some endpoints would work while others would not. This was due to the way Spotify API endpoints require the access token to be passed along with other requirements in the string. Once solved we could call any end point and recieve data back successfully.
 
@@ -304,6 +306,7 @@ We also discovered some endpoints would work while others would not. This was du
 - Importance of structuring app so logic such as API calls, token handling, authorisation, are all separate from data mapping
 - Usage of key React hooks such as `useState()` & `useEffect()`
 - Routing pages using React-Router-Dom & structuring the React app into subcomponents
+- Naming conventions are important as they help with the single responsibility principle
 - Team collaboration greatly aids collective motivation and ability to meet deadlines in a timely fashion
 - Different perspectives enable efficient and creative problem solving, enhancing ones own learning and understanding
 
