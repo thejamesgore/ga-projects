@@ -1,0 +1,16 @@
+.landing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.front-element {
+  z-index: 3 !important;
+}
+
+.hero {
+  background-color: #c0c2c8;
+  background-image: url('https://user-images.githubusercontent.com/83005220/147541218-4201e5c2-2122-4d0c-a3c6-b82a0c453645.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}

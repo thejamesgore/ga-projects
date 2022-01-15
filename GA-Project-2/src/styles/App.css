@@ -1,0 +1,104 @@
+
+
+.spotifyAuth__button {
+  position: relative;
+  font-size: 30px;
+  padding: 10px 30px;
+  border: 3px solid black;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: white;
+  overflow: hidden;
+  border-radius: 99px;
+  border: none;
+  font-weight: 600;
+}
+
+.spotifyAuth__button:focus {
+  outline: none;
+}
+
+.spotifyAuth__button::before,
+.spotifyAuth__button::after {
+  position: absolute;
+  content: '';
+  width: 25%;
+  height: 100%;
+  z-index: -1;
+  transition: transform 0.3s;
+}
+
+/* Red */
+.spotifyAuth__button::before {
+  top: 0;
+  left: 0;
+  background-color: red;
+  transform: translateY(-100%);
+}
+
+/* Orange */
+.spotifyAuth__button::after {
+  top: 0;
+  left: 25%;
+  background: orange;
+  transform: translateY(100%);
+}
+
+.shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: -2;
+}
+
+.shape::before,
+.shape::after {
+  position: absolute;
+  content: '';
+  width: 25%;
+  height: 100%;
+  transition: transform 0.3s;
+}
+
+/* Green */
+.shape::before {
+  top: 0;
+  left: 50%;
+  background-color: green;
+  transform: translateY(-100%);
+}
+
+/* Purple */
+.shape::after {
+  top: 0;
+  left: 75%;
+  background-color: purple;
+  transform: translateY(100%);
+}
+
+/* Hover Effect */
+.spotifyAuth__button:hover::before,
+.spotifyAuth__button:hover::after,
+.spotifyAuth__button:hover .shape::before,
+.spotifyAuth__button:hover .shape::after {
+  transform: translateY(0%);
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.podcasts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.results-page {
+  background-color: purple;
+  display: flex;
+  flex-wrap: wrap;
+}
