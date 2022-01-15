@@ -16,7 +16,7 @@ Table of Contents:
 
 ---
 
-Space Shooter is a sidescrolling shooting game inspired by the classic arcade games R-Type and Gradius. The objective is to reach the end of the game without taking any damage while trying to achieve the highest score by shooting enemy ships.
+Space Shooter is a side scrolling shooting game inspired by the classic arcade games R-Type and Gradius. The objective is to reach the end of the game without taking any damage while trying to achieve the highest score by shooting enemy ships.
 
 This was the first project from General Assembly's Software Engineering Immersive course. It was an individual project built in 7 days using vanilla JavaScript.
 
