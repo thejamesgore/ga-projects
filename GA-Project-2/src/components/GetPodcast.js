@@ -33,10 +33,6 @@ const GetPodcast = () => {
     }
   }, [data])
 
-  useEffect(() => {
-    console.log(`SHOW IDs >>>>>>> `, showIds)
-  }, [showIds])
-
   const handleGetPodcasts = () => {
     axios
       .get(podcastEndpoint, {

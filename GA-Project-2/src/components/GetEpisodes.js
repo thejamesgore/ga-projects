@@ -28,12 +28,6 @@ const GetEpisodes = () => {
       })
   }
 
-  // useEffect(() => {
-  //   if (!showIDs) {
-  //     history.push('/podcast')
-  //   }
-  // }, [])
-
   useEffect(() => {
     if (localStorage.getItem('accessToken')) {
       handleGetEpisodes()
@@ -41,10 +35,6 @@ const GetEpisodes = () => {
       history.push('/')
     }
   }, [token])
-
-  // if (state.episodes === null) {
-  //   return <Loading />
-  // }
 
   return (
     <div className="episodes-container">
@@ -56,7 +46,5 @@ const GetEpisodes = () => {
     </div>
   )
 }
-
-// use this to get the ID out from the url and get the podcast episodes
 
 export default GetEpisodes

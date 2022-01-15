@@ -7,8 +7,6 @@ function SearchPage() {
   const [searchAddress, setSearchAddress] = useState()
   const [results, setResults] = useState({})
   const token = localStorage.getItem('accessToken')
-
-  
   const handleSearch = () => {
     let string = window.location.pathname.substring(9)
 
@@ -28,13 +26,11 @@ function SearchPage() {
         console.error('there was an error fetching podcasts', err)
       })
     setSearchAddress(window.location.href)
-}
+  }
 
-useEffect(() => {
+  useEffect(() => {
     handleSearch()
-}, [window.location.href])
-
-
+  }, [window.location.href])
 
   return (
     <div className="results-page">

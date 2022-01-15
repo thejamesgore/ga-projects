@@ -6,7 +6,6 @@ const PodcastIndex = () => {
     <div>
       <GetPodcast />
     </div>
-
   )
-} 
+}
 export default PodcastIndex

@@ -26,7 +26,7 @@ const NavBar = () => {
             Podcasts
           </Link>
           <Link
-            to="/podcast/:id" // modified to reflect the ID of the podcast and expose it onClick
+            to="/podcast/:id"
             className="navbar-item has-background-success"
           >
             Episodes
@@ -51,7 +51,6 @@ const NavBar = () => {
             href="https://github.com/thejamesgore/ga-projects/tree/main/GA-Project-2"
             className="navbar-item login-logout"
           >
-            {/* insert ternary to change logout to login depending on local token */}
             GitHub Files
           </a>
         </div>
