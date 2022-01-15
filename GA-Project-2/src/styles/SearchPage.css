@@ -1,0 +1,19 @@
+.results-page {
+  background-color: purple;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fa {
+  margin-left: 20px;
+}
+
+.search-bar-container {
+    /* display: flex; */
+    justify-content: space-between;
+}
+
+.search-main {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}

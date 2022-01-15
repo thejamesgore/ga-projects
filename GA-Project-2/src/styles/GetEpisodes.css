@@ -1,0 +1,8 @@
+.episodes-container {
+    background-color: #48c78e !important;
+}
+
+.episodes-list {
+    display: flex;
+    flex-wrap: wrap;
+}
