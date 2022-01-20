@@ -189,7 +189,7 @@ async function secureRoute(req, res, next) {
 export default secureRoute;
 ```
 
-I set up a postman workspace so if any member of the team wished to test any functionality locally they would be able to. However, we mostly used zoom and postman on my machine for time efficiency. We tested our endpoints with and without a bearer token for those that were and were not locked down by our secure route.
+I set up a postman workspace so if any member of the team wished to test any functionality locally they would be able to. However, we mostly used Zoom and postman on my machine for time efficiency. We tested our endpoints with and without a bearer token for those that were and were not locked down by our secure route.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147378515-e67aa3af-abc5-4705-aa3f-862739922330.png 'Postman')
 
