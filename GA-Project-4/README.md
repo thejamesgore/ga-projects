@@ -115,7 +115,7 @@ Upon further research into the required technologies that would enable me to hit
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147387036-61c1e632-27d0-4436-a0a9-ed1a37140951.png 'DrawSQL models')
 
-From this point I created a general mock up of the various pages that would be requred on the frontend in figma. I made a decision early on to use a CSS framework to make the styling of the project uniform but more importantly to help save project time. This allowed for troubleshooting or resolving any bugs that would come further down.
+From this point I created a general mock up of the various pages that would be required on the frontend in Figma. I made a decision early on to use a CSS framework to make the styling of the project uniform but more importantly to help save project time. This allowed for troubleshooting or resolving any bugs that would come further down.
 
 ![Alt text](https://user-images.githubusercontent.com/83005220/147387018-fb9513c5-1e48-41d5-8214-6cf7c88a4725.png 'Figma Project Design')
 
@@ -180,7 +180,7 @@ getAllProducts()
 },[])
 ```
 
-Now API data was being successfully rendered on the landing page, I moved onto the prodct page again following the figma designs. I added some details such as displaying the product stock, limited the quantity one would be able to add to their cart based on the number of items in stock, and conditional rendering of the Add To Cart button thereby making it no longer clickable if there were no more of the item in stock.
+Now API data was being successfully rendered on the landing page, I moved onto the prodct page again following the Figma designs. I added some details such as displaying the product stock, limited the quantity one would be able to add to their cart based on the number of items in stock, and conditional rendering of the Add To Cart button thereby making it no longer clickable if there were no more of the item in stock.
 
 The next step was to start using React Redux for global state management and to expand on the functionality of the product page and shopping cart. Starting by creating the Redux store and wrapping the entire app in a provider component pointing to the store. I shifted to creating basic reducers and moved the Axios API call into Redux actions.
 
