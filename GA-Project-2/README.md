@@ -97,7 +97,7 @@ Key Dates:
 
 ### Day 1-3:
 
-As a team collaboration we decided to use the Spotify API for our project as we both used Spotify and found some elements to be lacking in the desktop version. We both knew this would be a challenging yet fun project to undertake that would push our ability and provide the most opportunity for learning and growth with our coding. We used Zoom and screen sharing throughout the development process as we were both working remotely
+As a team collaboration we decided to use the Spotify API for our project as we both used Spotify and found some elements to be lacking in the desktop version. We both knew this would be a challenging yet fun project to undertake that would push our ability and provide the most opportunity for learning and growth with our coding. We used Zoom and screen sharing throughout the development process as we were both working remotely.
 
 We started planning what features we would love to use ourselves and filtered those down to what would be appropriate for our project. We then began to create wire frames settling in on a simple multipage layout with our focus primarily on functionality and prioritising which features would enable us to hit our MVP. We initially began pair coding alternating every hour or so to start to build the basics such as a home page, navigation bar, and basic styling to give us a starting point to both work from. I created the login button with functionality, search bar, and styling using Bulma while Clem, my team partner, further built out the site structure and basic navigation.
 
