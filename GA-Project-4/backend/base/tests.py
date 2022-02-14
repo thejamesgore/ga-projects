@@ -1,7 +1,7 @@
-from urllib import response
 from django.test import TestCase, SimpleTestCase
+from urllib import response
 from django.urls import reverse, resolve
-from base.views import getRoutes, getUserProfile, updateUserProfile, registerUser
+from base.views import getRoutes, getUserProfile, updateUserProfile, registerUser, getUserProfile, getProducts, getTopProducts, addOrderItems
 
 # Create your tests here.
 
@@ -20,8 +20,24 @@ class URLTests(TestCase):
         self.assertEquals(resolve(url).func, updateUserProfile)
     
     def test_registerUser_resolves(self):
-        url = reverse('user-profile-update')
+        url = reverse('register')
         self.assertEquals(resolve(url).func, registerUser)
+
+    def test_getUserProfile_resolves(self):
+        url = reverse('users')
+        self.assertEquals(resolve(url).func, getUserProfile)
+    
+    def test_getProducts_resolves(self):
+        url = reverse('products')
+        self.assertEquals(resolve(url).func, getProducts)
+    
+    def test_getTopProducts_resolves(self):
+        url = reverse('top-products')
+        self.assertEquals(resolve(url).func, getTopProducts)
+    
+    def test_addOrderItems_resolves(self):
+        url = reverse('add-orders')
+        self.assertEquals(resolve(url).func, addOrderItems)
 
 
 
