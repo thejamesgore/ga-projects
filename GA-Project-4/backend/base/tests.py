@@ -75,6 +75,5 @@ class TestViews(TestCase):
 
 # TESTING MODELS
 
-class TestModels(TestCase):
+# class TestModels(TestCase):
 
-    
